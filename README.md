@@ -2,7 +2,7 @@
 
 [java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 
-> Pattern Design Study! I see and I forget, I hear and I remember, I do and I understand.
+> I see and I forget, I hear and I remember, I do and I understand.
 
 ## 设计模式速记
 - 单抽工建原
