@@ -10,33 +10,18 @@ package com.kevin.demo.structural.facade;
  */
 public class CmfFacade {
     
-    /**
-     * 公共服务子系统
-     */
     private CmfCommon common = new CmfCommon();
     
-    /**
-     * 等级服务子系统
-     */
     private CmfLevel cmfLevel = new CmfLevel();
     
-    /**
-     * 积分服务子系统
-     */
     private CmfPoint cmfPoint = new CmfPoint();
     
-    /**
-     * 用户注册（组合调用子系统的方法）
-     */
     public void register() {
         common.register();
         cmfLevel.addLevel();
         cmfPoint.addPoint();
     }
     
-    /**
-     * 用户注销（组合调用子系统的方法）
-     */
     public void unregiser() {
         common.unRegister();
         cmfLevel.delLevel();

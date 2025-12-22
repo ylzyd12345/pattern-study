@@ -1,5 +1,12 @@
 package com.kevin.demo.creational.builder.badExample;
 
+/**
+ * SubMealBuilderA类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class SubMealBuilderA extends MealBuilder {
 
 	public SubMealBuilderA(Meal meal) {

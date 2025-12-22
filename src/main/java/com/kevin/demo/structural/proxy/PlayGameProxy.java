@@ -10,15 +10,8 @@ package com.kevin.demo.structural.proxy;
  */
 public class PlayGameProxy implements PlayGame {
     
-    /**
-     * 游戏引用 - 真实主题对象
-     */
     private PlayGame playGame;
     
-    /**
-     * 构造函数
-     * @param playGame 游戏对象
-     */
     public PlayGameProxy(PlayGame playGame) {
         this.playGame = playGame;
     }

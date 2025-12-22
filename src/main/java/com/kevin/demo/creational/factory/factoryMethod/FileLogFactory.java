@@ -9,11 +9,6 @@ package com.kevin.demo.creational.factory.factoryMethod;
  */
 public class FileLogFactory  implements LogFactory{
 
-	/**
-	 * 创建文件日志记录对象
-	 * 
-	 * @return Log 文件日志记录对象
-	 */
 	@Override
 	public Log createLog() {
 		return new FileLog();

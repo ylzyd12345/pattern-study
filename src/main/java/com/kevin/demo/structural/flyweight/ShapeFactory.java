@@ -13,18 +13,8 @@ import java.util.Map;
  */
 public class ShapeFactory {
     
-    /**
-     * 形状缓存池 - 存储已创建的享元对象
-     */
     private static Map<String, Shape> shapeMap = new HashMap<>();
 
-    /**
-     * 获取形状对象
-     * 如果缓存中存在指定颜色的形状，则直接返回；否则创建新的形状对象并放入缓存
-     * 
-     * @param color 形状颜色（内部状态）
-     * @return Shape 形状对象
-     */
     public static Shape getShape(String color) {
         if (null == shapeMap.get(color)) {
             CircleShape circleShape = new CircleShape();

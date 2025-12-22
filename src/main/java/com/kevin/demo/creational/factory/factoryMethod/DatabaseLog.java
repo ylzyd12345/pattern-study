@@ -9,9 +9,6 @@ package com.kevin.demo.creational.factory.factoryMethod;
  */
 public class DatabaseLog implements Log {
 
-	/**
-	 * 写入数据库日志
-	 */
 	@Override
 	public void writeLog() {
 		System.out.println("log into database!");

@@ -10,25 +10,12 @@ package com.kevin.demo.structural.decorator;
  */
 public class CallDecorator extends Call {
 
-    /**
-     * 被装饰的电话对象
-     */
     private Call call;
 
-    /**
-     * 构造方法
-     * 
-     * @param call 要装饰的电话对象
-     */
     public CallDecorator(Call call) {
         this.call = call;
     }
 
-    /**
-     * 拨打电话
-     * 
-     * @param number 电话号码
-     */
     @Override
     protected void call(String number) {
         call.call(number);

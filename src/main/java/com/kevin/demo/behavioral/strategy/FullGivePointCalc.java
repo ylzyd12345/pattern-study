@@ -15,12 +15,6 @@ import java.math.BigDecimal;
  */
 public class FullGivePointCalc implements PointCalc {
 
-	/**
-	 * 计算积分 - 实现满额赠送的积分计算算法
-	 * 
-	 * @param point 原始积分值
-	 * @return 计算后的积分值
-	 */
 	@Override
 	public BigDecimal calc(BigDecimal point) {
 		// 业务规则：积分超过10000时赠送10倍积分，否则返回原始积分

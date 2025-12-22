@@ -14,16 +14,8 @@ package com.kevin.demo.creational.singleton.lazy.doubleCheck;
  * @author Kevin
  */
 public class DoubleCheckLazySingleton {
-	/**
-	 * 单例实例，使用volatile关键字确保线程可见性和禁止指令重排序
-	 */
 	private static volatile DoubleCheckLazySingleton singleton;
 
-	/**
-	 * 私有构造方法，防止外部实例化
-	 * <p>
-	 * 添加了反射防护机制，防止通过反射创建多个实例
-	 */
 	private DoubleCheckLazySingleton() {
 		// 反射防护机制
 		if (singleton != null) {
@@ -31,13 +23,6 @@ public class DoubleCheckLazySingleton {
 		}
 	}
 
-	/**
-	 * 获取单例实例
-	 * <p>
-	 * 使用双重检查锁定机制确保线程安全和高性能
-	 * 
-	 * @return DoubleCheckLazySingleton 单例实例
-	 */
 	public static DoubleCheckLazySingleton getInstance() {
 		// 第一次检查，避免不必要的同步
 		if (null == singleton) {

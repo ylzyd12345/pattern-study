@@ -12,23 +12,12 @@ import java.util.ArrayList;
  */
 public class Folder extends File {
     
-    /**
-     * 文件夹中的文件列表
-     */
     private ArrayList<File> files = new ArrayList<>();
     
-    /**
-     * 构造方法
-     * 
-     * @param name 文件夹名称
-     */
     public Folder(String name) {
         super(name);
     }
 
-    /**
-     * 显示文件夹中的所有文件和子文件夹
-     */
     @Override
     protected void display() {
         System.out.println("文件夹: " + name + " 包含以下内容:");
@@ -37,20 +26,10 @@ public class Folder extends File {
         }
     }
     
-    /**
-     * 向文件夹中添加文件或子文件夹
-     * 
-     * @param file 要添加的文件或文件夹
-     */
     public void addFile(File file) {
         files.add(file);
     }
     
-    /**
-     * 从文件夹中删除文件或子文件夹
-     * 
-     * @param file 要删除的文件或文件夹
-     */
     public void delFile(File file) {
         files.remove(file);
     }

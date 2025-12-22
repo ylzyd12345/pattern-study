@@ -14,11 +14,6 @@ import java.util.Observable;
  */
 public class WeatherStation extends Observable {
     
-    /**
-     * 模拟天气变化
-     * <p>
-     * 当天气发生变化时，调用此方法通知所有观察者
-     */
     public void changed() {
         // 标记状态已改变
         setChanged();

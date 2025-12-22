@@ -1,5 +1,12 @@
 package com.kevin.demo.behavioral.memento;
 
+/**
+ * Memento类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class Memento {
 	private int bloodFlow;
 	private int magicPoint;

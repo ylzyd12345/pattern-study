@@ -9,16 +9,10 @@ package com.kevin.demo.structural.facade;
  * @since 2023-10-15
  */
 public class CmfPoint {
-    /**
-     * 添加用户积分
-     */
     public void addPoint() {
         System.out.println("add point");
     }
     
-    /**
-     * 删除用户积分
-     */
     public void delPoint() {
         System.out.println("del point");
     }

@@ -9,9 +9,5 @@ package com.kevin.demo.structural.adapter;
  * @since 2023-10-15
  */
 public interface ComputerPower {
-    /**
-     * 获取电源电压
-     * @return int 电源电压（单位：伏）
-     */
     int getPower();
 }

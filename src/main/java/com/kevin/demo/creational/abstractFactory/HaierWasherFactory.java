@@ -1,5 +1,12 @@
 package com.kevin.demo.creational.抽象factory;
 
+/**
+ * HaierWasherFactory类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class HaierWasherFactory implements HaierFactory {
 
 	@Override

@@ -19,19 +19,10 @@ import java.util.Map;
  */
 public class SpringPointGiveServiceImpl implements PointGiveService {
     
-    /**
-     * 默认使用的积分计算策略
-     */
     private PointCalc pointCalc;
     
-    /**
-     * 存储所有可用的积分计算策略
-     */
     private Map<String, PointCalc> pointCalcMap;
     
-    /**
-     * 构造方法，初始化策略映射
-     */
     public SpringPointGiveServiceImpl() {
         // 初始化策略映射，模拟Spring容器的Bean管理
         this.pointCalcMap = new HashMap<>();
@@ -42,24 +33,12 @@ public class SpringPointGiveServiceImpl implements PointGiveService {
         this.pointCalc = pointCalcMap.get("springPointCalc");
     }
     
-    /**
-     * 计算并发放积分
-     * <p>
-     * 使用注入的策略进行积分计算
-     * 
-     * @param point 原始积分值
-     */
     @Override
     public void givePoint(BigDecimal point) {
         BigDecimal result = pointCalc.calc(point);
         System.out.println("使用Spring策略模式计算积分：" + result);
     }
     
-    /**
-     * 根据策略名称动态切换积分计算策略
-     * 
-     * @param strategyName 策略名称
-     */
     public void setPointCalcStrategy(String strategyName) {
         if (pointCalcMap.containsKey(strategyName)) {
             this.pointCalc = pointCalcMap.get(strategyName);

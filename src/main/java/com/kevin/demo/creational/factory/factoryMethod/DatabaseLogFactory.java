@@ -9,11 +9,6 @@ package com.kevin.demo.creational.factory.factoryMethod;
  */
 public class DatabaseLogFactory  implements LogFactory{
 
-	/**
-	 * 创建数据库日志记录对象
-	 * 
-	 * @return Log 数据库日志记录对象
-	 */
 	@Override
 	public Log createLog() {
 		return new DatabaseLog();

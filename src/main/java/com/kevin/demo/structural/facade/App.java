@@ -9,11 +9,6 @@ package com.kevin.demo.structural.facade;
  * @since 2023-10-15
  */
 public class App {
-    /**
-     * 主方法，演示外观模式的使用
-     * 
-     * @param args 命令行参数
-     */
     public static void main(String[] args) {
         // 创建外观对象
         CmfFacade cmfFacade = new CmfFacade();

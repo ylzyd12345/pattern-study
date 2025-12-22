@@ -13,17 +13,7 @@ package com.kevin.demo.behavioral.iterator;
  * @since 1.0.0
  */
 public interface Iterator<T> {
-	/**
-	 * 检查是否还有下一个元素
-	 * 
-	 * @return 如果有下一个元素返回true，否则返回false
-	 */
 	boolean hasNext();
 	
-	/**
-	 * 返回下一个元素
-	 * 
-	 * @return 下一个元素
-	 */
 	T next();
 }

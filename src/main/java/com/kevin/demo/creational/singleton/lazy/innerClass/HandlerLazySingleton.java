@@ -13,36 +13,19 @@ package com.kevin.demo.creational.singleton.lazy.innerClass;
  */
 public class HandlerLazySingleton {
 
-	/**
-	 * 私有构造方法，防止外部实例化
-	 */
 	private HandlerLazySingleton() {
 		// 防止通过反射创建多个实例
 		if (SingletonHander.SINGLETON != null) {
 			throw new IllegalStateException("Singleton instance already exists!");
 		}
 	}
-
 	/**
-	 * 内部静态类，用于持有单例实例
-	 * <p>
-	 * 内部类的加载时机：只有当getInstance()方法被调用时，才会加载此类
-	 * </p>
+	 * 静态内部类 - 延迟加载实例
 	 */
 	private static class SingletonHander {
-		/**
-		 * 单例实例，在类加载时创建
-		 */
 		private static final HandlerLazySingleton SINGLETON = new HandlerLazySingleton();
 	}
 
-	/**
-	 * 获取单例实例
-	 * <p>
-	 * 此方法是线程安全的，且实现了懒加载
-	 * </p>
-	 * @return 单例实例
-	 */
 	public static HandlerLazySingleton getInstance() {
 		return SingletonHander.SINGLETON;
 	}

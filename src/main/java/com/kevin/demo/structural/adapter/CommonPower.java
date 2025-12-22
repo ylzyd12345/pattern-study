@@ -9,10 +9,6 @@ package com.kevin.demo.structural.adapter;
  * @since 2023-10-15
  */
 public class CommonPower {
-    /**
-     * 获取普通电源电压
-     * @return int 电源电压（单位：伏）
-     */
     public int getPower() {
         return 220;
     }

@@ -3,6 +3,13 @@ package com.kevin.demo.behavioral.observer;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * WeatherSite类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class WeatherSite implements Observer{
 
 	@Override

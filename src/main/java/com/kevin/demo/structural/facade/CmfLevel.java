@@ -9,16 +9,10 @@ package com.kevin.demo.structural.facade;
  * @since 2023-10-15
  */
 public class CmfLevel {
-    /**
-     * 添加用户等级
-     */
     public void addLevel() {
         System.out.println("add level");
     }
     
-    /**
-     * 删除用户等级
-     */
     public void delLevel() {
         System.out.println("del level");
     }

@@ -10,11 +10,6 @@ package com.kevin.demo.structural.composite;
  */
 public class App {
     
-    /**
-     * 主方法，演示组合模式的使用
-     * 
-     * @param args 命令行参数
-     */
     public static void main(String[] args) {
         // 创建一个文件夹
         Folder folder = new Folder("C:");

@@ -9,10 +9,5 @@ package com.kevin.demo.structural.bridge;
  * @since 2023-10-15
  */
 public interface VidioFile {
-    /**
-     * 解码视频文件
-     * @param fileName 视频文件名
-     * @param osType 操作系统类型
-     */
     void decode(String fileName, String osType);
 }

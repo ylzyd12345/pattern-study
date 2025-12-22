@@ -1,6 +1,15 @@
 package com.kevin.demo.behavioral.template;
-
+/**
+ * @author Administrator
+ *
+ */
 public abstract class AbstractPointGiveAction {
+	/**
+	 * 积分给用户
+	 * @param user 用户
+	 * @param point 积分
+	 * @return 是否成功
+	 */
 	public boolean give(String user,int point) {
 		if (!isAuthed(user)) {
 			return false;

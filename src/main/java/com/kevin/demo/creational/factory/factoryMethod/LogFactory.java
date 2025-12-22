@@ -8,10 +8,5 @@ package com.kevin.demo.creational.factory.factoryMethod;
  * @author Kevin
  */
 public interface LogFactory {
-	/**
-	 * 创建日志记录对象
-	 * 
-	 * @return Log 日志记录对象
-	 */
 	Log createLog();
 }

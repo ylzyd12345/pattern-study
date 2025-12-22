@@ -10,15 +10,8 @@ package com.kevin.demo.structural.adapter;
  */
 public class ThinkPadPower implements ComputerPower {
     
-    /**
-     * 普通电源引用 - 被适配者对象
-     */
     private CommonPower commonPower;
 
-    /**
-     * 构造函数
-     * @param commonPower 普通电源对象
-     */
     public ThinkPadPower(CommonPower commonPower) {
         this.commonPower = commonPower;
     }

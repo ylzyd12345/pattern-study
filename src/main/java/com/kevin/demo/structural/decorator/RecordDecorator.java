@@ -10,20 +10,10 @@ package com.kevin.demo.structural.decorator;
  */
 public class RecordDecorator extends CallDecorator {
 
-    /**
-     * 构造方法
-     * 
-     * @param call 要装饰的电话对象
-     */
     public RecordDecorator(Call call) {
         super(call);
     }
 
-    /**
-     * 拨打电话并记录通话时间
-     * 
-     * @param number 电话号码
-     */
     @Override
     protected void call(String number) {
         long begintime = System.currentTimeMillis();
@@ -32,13 +22,6 @@ public class RecordDecorator extends CallDecorator {
         record(begintime, endtime, number);
     }
 
-    /**
-     * 记录通话时间
-     * 
-     * @param begintime 开始时间
-     * @param endtime 结束时间
-     * @param number 电话号码
-     */
     private void record(long begintime, long endtime, String number) {
         System.out.println("通话记录: 拨打" + number + ", 通话时长: " + (endtime - begintime) + "毫秒");
     }

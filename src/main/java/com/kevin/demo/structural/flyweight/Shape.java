@@ -9,8 +9,5 @@ package com.kevin.demo.structural.flyweight;
  * @since 2023-10-15
  */
 public interface Shape {
-    /**
-     * 绘制形状
-     */
     void drow();
 }

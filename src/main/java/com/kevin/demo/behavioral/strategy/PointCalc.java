@@ -14,12 +14,6 @@ import java.math.BigDecimal;
  */
 public interface PointCalc {
 
-	/**
-	 * 计算积分
-	 * 
-	 * @param point 原始积分值
-	 * @return 计算后的积分值
-	 */
 	public BigDecimal calc(BigDecimal point);
 	
 }

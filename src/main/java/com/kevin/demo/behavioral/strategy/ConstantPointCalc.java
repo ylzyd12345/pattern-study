@@ -11,12 +11,6 @@ import java.math.BigDecimal;
  */
 public class ConstantPointCalc implements PointCalc {
 
-	/**
-	 * 计算积分 - 实现固定比例(1:1)的积分计算
-	 * 
-	 * @param point 原始积分值
-	 * @return 计算后的积分值（与原始积分值相同）
-	 */
 	@Override
 	public BigDecimal calc(BigDecimal point) {
 		// 固定比例(1:1)计算，直接返回原始积分值

@@ -12,24 +12,12 @@ import java.util.Map;
  */
 public class ConcreteChatRoom implements ChatRoomMediator {
     
-    /**
-     * 保存注册的用户
-     */
     private Map<String, User> userMap;
     
-    /**
-     * 构造方法
-     */
     public ConcreteChatRoom() {
         this.userMap = new HashMap<>();
     }
     
-    /**
-     * 发送消息
-     * 
-     * @param message 消息内容
-     * @param userId 发送者ID
-     */
     @Override
     public void sendMessage(String message, String userId) {
         User sender = userMap.get(userId);
@@ -47,11 +35,6 @@ public class ConcreteChatRoom implements ChatRoomMediator {
         }
     }
     
-    /**
-     * 注册用户
-     * 
-     * @param user 用户对象
-     */
     @Override
     public void registerUser(User user) {
         if (user != null && !userMap.containsKey(user.getId())) {

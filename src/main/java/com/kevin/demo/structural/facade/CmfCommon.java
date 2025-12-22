@@ -9,16 +9,10 @@ package com.kevin.demo.structural.facade;
  * @since 2023-10-15
  */
 public class CmfCommon {
-    /**
-     * 用户注册
-     */
     public void register() {
         System.out.println("add user");
     }
     
-    /**
-     * 用户注销
-     */
     public void unRegister() {
         System.out.println("del user");
     }

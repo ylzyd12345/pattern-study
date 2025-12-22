@@ -8,8 +8,5 @@ package com.kevin.demo.creational.factory.factoryMethod;
  * @author Kevin
  */
 public interface Log {
-	/**
-	 * 写入日志记录
-	 */
 	void writeLog();
 }

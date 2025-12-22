@@ -9,9 +9,5 @@ package com.kevin.demo.structural.proxy;
  * @since 2023-10-15
  */
 public interface PlayGame {
-    /**
-     * 玩游戏
-     * @param gameName 游戏名称
-     */
     void play(String gameName);
 }

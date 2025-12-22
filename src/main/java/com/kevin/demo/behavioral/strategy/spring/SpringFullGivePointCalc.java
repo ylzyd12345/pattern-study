@@ -14,14 +14,6 @@ import java.math.BigDecimal;
  */
 public class SpringFullGivePointCalc implements PointCalc {
     
-    /**
-     * 计算积分
-     * <p>
-     * 满减积分策略：满100积分送50积分
-     * 
-     * @param point 原始积分值
-     * @return 计算后的积分值
-     */
     @Override
     public BigDecimal calc(BigDecimal point) {
         System.out.println("使用Spring满减积分计算策略");

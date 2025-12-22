@@ -11,17 +11,7 @@ package com.kevin.demo.behavioral.iterator;
  * @since 1.0.0
  */
 public interface Team {
-	/**
-	 * 添加团队成员
-	 * 
-	 * @param member 团队成员对象
-	 */
 	void add(Member member);
 	
-	/**
-	 * 创建并返回一个迭代器，用于遍历团队成员
-	 * 
-	 * @return 团队成员迭代器
-	 */
 	Iterator<Member> iterator();
 }

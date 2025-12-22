@@ -9,9 +9,6 @@ package com.kevin.demo.creational.factory.factoryMethod;
  */
 public class FileLog implements Log {
 
-	/**
-	 * 写入文件日志
-	 */
 	@Override
 	public void writeLog() {
 		System.out.println("log into file!");

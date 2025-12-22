@@ -7,6 +7,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+/**
+ * Book类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class Book implements Cloneable,Serializable {
 	private static final long serialVersionUID = -2227190595410858190L;
 	

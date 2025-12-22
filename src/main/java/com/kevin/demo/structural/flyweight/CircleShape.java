@@ -10,9 +10,6 @@ package com.kevin.demo.structural.flyweight;
  */
 public class CircleShape implements Shape {
     
-    /**
-     * 颜色 - 享元对象的内部状态，可共享
-     */
     private String color;
 
     @Override
@@ -20,18 +17,10 @@ public class CircleShape implements Shape {
         System.out.println("drow a " + color + " circle");
     }
 
-    /**
-     * 获取颜色
-     * @return 颜色字符串
-     */
     public String getColor() {
         return color;
     }
 
-    /**
-     * 设置颜色
-     * @param color 颜色字符串
-     */
     public void setColor(String color) {
         this.color = color;
     }

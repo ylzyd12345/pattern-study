@@ -8,18 +8,7 @@ package com.kevin.demo.behavioral.mediator;
  * @author Kevin
  */
 public interface ChatRoomMediator {
-    /**
-     * 发送消息
-     * 
-     * @param message 消息内容
-     * @param userId 发送者ID
-     */
     void sendMessage(String message, String userId);
     
-    /**
-     * 注册用户
-     * 
-     * @param user 用户对象
-     */
     void registerUser(User user);
 }

@@ -1,5 +1,12 @@
 package com.kevin.demo.behavioral.interpreter;
 
+/**
+ * And类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class And extends Expression {
 
 	private Expression left;

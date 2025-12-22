@@ -10,18 +10,10 @@ package com.kevin.demo.structural.composite;
  */
 public class VidioFile extends File {
     
-    /**
-     * 构造方法
-     * 
-     * @param name 视频文件名称
-     */
     public VidioFile(String name) {
         super(name);
     }
 
-    /**
-     * 显示视频文件信息
-     */
     @Override
     protected void display() {
         System.out.println("视频文件: " + name);

@@ -10,11 +10,6 @@ package com.kevin.demo.structural.decorator;
  */
 public class PhoneCall extends Call {
 
-    /**
-     * 拨打电话
-     * 
-     * @param number 电话号码
-     */
     @Override
     protected void call(String number) {
         System.out.println("拨打电话，号码是: " + number);

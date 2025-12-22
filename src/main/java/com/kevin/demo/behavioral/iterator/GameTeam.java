@@ -1,5 +1,12 @@
 package com.kevin.demo.behavioral.iterator;
 
+/**
+ * GameTeam类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class GameTeam implements Team{
 
 	private static final int MAX_MEMBERS = 5;

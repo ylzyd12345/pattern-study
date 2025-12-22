@@ -1,5 +1,12 @@
 package com.kevin.demo.behavioral.interpreter;
 
+/**
+ * Not类
+ * 
+ * @author Kevin
+ * @version 1.0
+ * @since 1.0.0
+ */
 public class Not extends Expression {
 
 	private Expression expression;

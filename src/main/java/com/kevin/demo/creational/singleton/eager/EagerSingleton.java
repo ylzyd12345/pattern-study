@@ -20,14 +20,8 @@ package com.kevin.demo.creational.singleton.eager;
  */
 public class EagerSingleton {
 
-	/**
-	 * 单例实例，类加载时即初始化
-	 */
 	private static final EagerSingleton INSTANCE = new EagerSingleton();
 
-	/**
-	 * 私有构造方法，防止外部实例化
-	 */
 	private EagerSingleton() {
 		// 防止通过反射创建实例
 		if (INSTANCE != null) {
@@ -35,20 +29,10 @@ public class EagerSingleton {
 		}
 	}
 
-	/**
-	 * 获取单例实例的全局访问点
-	 * 
-	 * @return 饿汉式单例实例
-	 */
 	public static EagerSingleton getInstance() {
 		return INSTANCE;
 	}
 
-	/**
-	 * 重写readResolve方法，防止序列化/反序列化破坏单例
-	 * 
-	 * @return 单例实例
-	 */
 	private Object readResolve() {
 		return INSTANCE;
 	}

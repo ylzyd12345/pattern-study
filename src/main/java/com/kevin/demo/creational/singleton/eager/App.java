@@ -5,10 +5,6 @@ package com.kevin.demo.creational.singleton.eager;
  * @author kevin
  */
 public class App {
-	/**
-	 * 主方法，测试饿汉式单例模式
-	 * @param args 命令行参数
-	 */
 	public static void main(String[] args) {
 		EagerSingleton eagerSingleton = EagerSingleton.getInstance();
 		EagerSingleton eagerSingleton2 = EagerSingleton.getInstance();
