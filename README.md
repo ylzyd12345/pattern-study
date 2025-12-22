@@ -60,6 +60,49 @@ java App
 ## 项目结构
 
 项目采用标准的Maven目录结构，所有设计模式按照创建型、结构型和行为型三大类进行组织：
+```java
+static {
+        // 行为型模式
+        DIRECTORY_MAPPINGS.put("中介", "mediator");
+        DIRECTORY_MAPPINGS.put("命令", "command");
+        DIRECTORY_MAPPINGS.put("备忘录", "memento");
+        DIRECTORY_MAPPINGS.put("模板", "template");
+        DIRECTORY_MAPPINGS.put("状态", "state");
+        DIRECTORY_MAPPINGS.put("策略", "strategy");
+        DIRECTORY_MAPPINGS.put("观察者", "observer");
+        DIRECTORY_MAPPINGS.put("解释", "interpreter");
+        DIRECTORY_MAPPINGS.put("访问者", "visitor");
+        DIRECTORY_MAPPINGS.put("责任链", "chainOfResponsibility");
+        DIRECTORY_MAPPINGS.put("迭代", "iterator");
+        
+        // 创建型模式
+        DIRECTORY_MAPPINGS.put("单例", "singleton");
+        DIRECTORY_MAPPINGS.put("原", "prototype");
+        DIRECTORY_MAPPINGS.put("工厂", "factory");
+        DIRECTORY_MAPPINGS.put("建造者", "builder");
+        DIRECTORY_MAPPINGS.put("抽象工厂", "abstractFactory");
+        
+        // 结构型模式
+        DIRECTORY_MAPPINGS.put("享元", "flyweight");
+        DIRECTORY_MAPPINGS.put("代理", "proxy");
+        DIRECTORY_MAPPINGS.put("外观", "facade");
+        DIRECTORY_MAPPINGS.put("桥", "bridge");
+        DIRECTORY_MAPPINGS.put("组合", "composite");
+        DIRECTORY_MAPPINGS.put("装饰", "decorator");
+        DIRECTORY_MAPPINGS.put("适配", "adapter");
+        
+        // 其他子目录
+        DIRECTORY_MAPPINGS.put("不好的例子", "badExample");
+        DIRECTORY_MAPPINGS.put("好的例子", "goodExample");
+        DIRECTORY_MAPPINGS.put("懒汉", "lazy");
+        DIRECTORY_MAPPINGS.put("内部类", "innerClass");
+        DIRECTORY_MAPPINGS.put("双检", "doubleCheck");
+        DIRECTORY_MAPPINGS.put("枚举", "enum");
+        DIRECTORY_MAPPINGS.put("饿汉", "eager");
+        DIRECTORY_MAPPINGS.put("工厂方法", "factoryMethod");
+        DIRECTORY_MAPPINGS.put("简单工厂", "simpleFactory");
+    }
+```
 
 ```
 pattern-study/
