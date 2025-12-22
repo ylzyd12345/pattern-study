@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.访问者;
+package com.kevin.demo.behavioral.visitor;
 
 import java.util.ArrayList;
 import java.util.List;

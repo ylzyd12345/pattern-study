@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.迭代;
+package com.kevin.demo.behavioral.iterator;
 
 public class AppTest {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.中介;
+package com.kevin.demo.behavioral.mediator;
 
 import java.util.HashMap;
 import java.util.Map;

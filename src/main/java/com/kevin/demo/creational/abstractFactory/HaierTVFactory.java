@@ -1,0 +1,22 @@
+package com.kevin.demo.creational.抽象factory;
+
+public class HaierTVFactory implements HaierFactory {
+
+	@Override
+	public HaierTV createTV() {
+		return new HaierTV() {
+			
+			@Override
+			public void play() {
+				System.out.println("haier TV play!");
+			}
+		};
+	}
+
+	@Override
+	public HaierWasher createWasher() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

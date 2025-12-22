@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.解释;
+package com.kevin.demo.behavioral.interpreter;
 
 public class Constant extends Expression {
 

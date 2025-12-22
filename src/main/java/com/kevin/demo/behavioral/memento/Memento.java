@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.备忘录;
+package com.kevin.demo.behavioral.memento;
 
 public class Memento {
 	private int bloodFlow;

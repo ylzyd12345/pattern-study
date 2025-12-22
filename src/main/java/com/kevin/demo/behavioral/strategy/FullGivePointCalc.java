@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.策略;
+package com.kevin.demo.behavioral.strategy;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.原;
+package com.kevin.demo.creational.prototype;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.模板;
+package com.kevin.demo.behavioral.template;
 
 public class HKPointGiveAction  extends AbstractPointGiveAction{
 

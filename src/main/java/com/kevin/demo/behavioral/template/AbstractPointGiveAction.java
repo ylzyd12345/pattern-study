@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.模板;
+package com.kevin.demo.behavioral.template;
 
 public abstract class AbstractPointGiveAction {
 	public boolean give(String user,int point) {

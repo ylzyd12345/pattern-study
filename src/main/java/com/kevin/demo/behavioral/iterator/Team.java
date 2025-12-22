@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.迭代;
+package com.kevin.demo.behavioral.iterator;
 
 /**
  * 团队接口 - 迭代器模式中的聚合角色(Aggregate)

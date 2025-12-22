@@ -1,6 +1,6 @@
-package com.kevin.demo.behavioral.策略.spring;
+package com.kevin.demo.behavioral.strategy.spring;
 
-import com.kevin.demo.behavioral.策略.PointCalc;
+import com.kevin.demo.behavioral.strategy.PointCalc;
 
 import java.math.BigDecimal;
 

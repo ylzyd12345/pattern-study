@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.中介;
+package com.kevin.demo.behavioral.mediator;
 
 /**
  * 聊天室中介者接口

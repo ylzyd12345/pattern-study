@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.观察者;
+package com.kevin.demo.behavioral.observer;
 
 import java.util.Observable;
 import java.util.Observer;

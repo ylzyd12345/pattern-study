@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.解释;
+package com.kevin.demo.behavioral.interpreter;
 
 import java.util.HashMap;
 import java.util.Map;

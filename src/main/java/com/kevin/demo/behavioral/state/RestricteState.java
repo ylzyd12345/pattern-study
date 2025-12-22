@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.状态;
+package com.kevin.demo.behavioral.state;
 
 /**
  * 受限状态类

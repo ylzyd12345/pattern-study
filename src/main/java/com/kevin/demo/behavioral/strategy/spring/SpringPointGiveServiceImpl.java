@@ -1,7 +1,7 @@
-package com.kevin.demo.behavioral.策略.spring;
+package com.kevin.demo.behavioral.strategy.spring;
 
-import com.kevin.demo.behavioral.策略.PointCalc;
-import com.kevin.demo.behavioral.策略.PointGiveService;
+import com.kevin.demo.behavioral.strategy.PointCalc;
+import com.kevin.demo.behavioral.strategy.PointGiveService;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

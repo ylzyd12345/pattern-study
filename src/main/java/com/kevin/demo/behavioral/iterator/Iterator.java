@@ -1,4 +1,4 @@
-package com.kevin.demo.behavioral.迭代;
+package com.kevin.demo.behavioral.iterator;
 
 /**
  * 迭代器接口 - 迭代器模式中的迭代器角色(Iterator)
