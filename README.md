@@ -59,7 +59,7 @@ java App
 
 ## 项目结构
 
-项目采用标准的Maven目录结构：
+项目采用标准的Maven目录结构，所有设计模式按照创建型、结构型和行为型三大类进行组织：
 
 ```
 pattern-study/
@@ -67,15 +67,83 @@ pattern-study/
 │   ├── main/
 │   │   ├── java/com/kevin/demo/     # 主要代码
 │   │   │   ├── creational/          # 创建型模式
-│   │   │   ├── structral/           # 结构型模式
+│   │   │   │   ├── singleton/       # 单例模式
+│   │   │   │   ├── factory/         # 工厂方法模式
+│   │   │   │   ├── abstractFactory/ # 抽象工厂模式
+│   │   │   │   ├── builder/         # 建造者模式
+│   │   │   │   └── prototype/       # 原型模式
+│   │   │   ├── structural/          # 结构型模式
+│   │   │   │   ├── adapter/         # 适配器模式
+│   │   │   │   ├── bridge/          # 桥接模式
+│   │   │   │   ├── composite/       # 组合模式
+│   │   │   │   ├── decorator/       # 装饰器模式
+│   │   │   │   ├── facade/          # 外观模式
+│   │   │   │   ├── flyweight/       # 享元模式
+│   │   │   │   └── proxy/           # 代理模式
 │   │   │   └── behavioral/          # 行为型模式
+│   │   │       ├── chainOfResponsibility/ # 责任链模式
+│   │   │       ├── command/         # 命令模式
+│   │   │       ├── interpreter/     # 解释器模式
+│   │   │       ├── iterator/        # 迭代器模式
+│   │   │       ├── mediator/        # 中介者模式
+│   │   │       ├── memento/         # 备忘录模式
+│   │   │       ├── observer/        # 观察者模式
+│   │   │       ├── state/           # 状态模式
+│   │   │       ├── strategy/        # 策略模式
+│   │   │       ├── template/        # 模板方法模式
+│   │   │       └── visitor/         # 访问者模式
 │   │   └── resources/               # 资源文件
 │   └── test/
 │       └── java/com/kevin/demo/     # 测试代码
+├── docs/                            # 设计模式文档
+│   ├── creational/                  # 创建型模式文档
+│   ├── structural/                  # 结构型模式文档
+│   └── behavioral/                  # 行为型模式文档
 ├── pom.xml                          # Maven配置文件
 ├── README.md                        # 项目说明文档
-└── LICENSE                          # 许可证文件
+├── LICENSE                          # 许可证文件
+├── TODO.md                          # 待优化任务列表
+└── CHANGELOG.md                     # 版本更新日志
 ```
+
+### 设计模式组织方式
+
+每个设计模式目录通常包含以下内容：
+- `goodExample/` - 推荐的实现方式
+- `badExample/` - 不推荐的实现方式（用于对比学习）
+- `App.java` - 示例应用程序
+- `AppTest.java` - 单元测试
+
+## 设计模式列表
+
+### 创建型模式
+- **单例模式 (Singleton)** - 确保一个类只有一个实例，并提供全局访问点
+- **工厂方法模式 (Factory Method)** - 定义创建对象的接口，让子类决定实例化哪个类
+- **抽象工厂模式 (Abstract Factory)** - 提供一个创建一系列相关或相互依赖对象的接口
+- **建造者模式 (Builder)** - 将一个复杂对象的构建与它的表示分离
+- **原型模式 (Prototype)** - 用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象
+
+### 结构型模式
+- **适配器模式 (Adapter)** - 将一个类的接口转换成客户希望的另一个接口
+- **桥接模式 (Bridge)** - 将抽象部分与它的实现部分分离，使它们都可以独立地变化
+- **组合模式 (Composite)** - 将对象组合成树形结构以表示"部分-整体"的层次结构
+- **装饰器模式 (Decorator)** - 动态地给一个对象添加一些额外的职责
+- **外观模式 (Facade)** - 为子系统中的一组接口提供一个一致的界面
+- **享元模式 (Flyweight)** - 运用共享技术有效地支持大量细粒度的对象
+- **代理模式 (Proxy)** - 为其他对象提供一种代理以控制对这个对象的访问
+
+### 行为型模式
+- **责任链模式 (Chain of Responsibility)** - 使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系
+- **命令模式 (Command)** - 将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化
+- **解释器模式 (Interpreter)** - 给定一个语言，定义它的文法的一种表示，并定义一个解释器
+- **迭代器模式 (Iterator)** - 提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露该对象的内部表示
+- **中介者模式 (Mediator)** - 用一个中介对象来封装一系列的对象交互
+- **备忘录模式 (Memento)** - 在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态
+- **观察者模式 (Observer)** - 定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新
+- **状态模式 (State)** - 允许一个对象在其内部状态改变时改变它的行为
+- **策略模式 (Strategy)** - 定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换
+- **模板方法模式 (Template Method)** - 定义一个操作中的算法的骨架，而将一些步骤延迟到子类中
+- **访问者模式 (Visitor)** - 表示一个作用于某对象结构中的各元素的操作
 
 ## 贡献指南
 
@@ -116,13 +184,13 @@ pattern-study/
 - [原型模式](docs/creational/原/prototype-pattern.md) (Prototype Pattern)
 
 ### 结构型模式（Structural Patterns）
-- [代理模式](docs/structral/代理/proxy-pattern.md) (Proxy Pattern)
-- [桥接模式](docs/structral/桥/bridge-pattern.md) (Bridge Pattern)
-- [适配器模式](docs/structral/适配/adapter-pattern.md) (Adapter Pattern)
-- [外观模式](docs/structral/外观/facade-pattern.md) (Facade Pattern)
-- [享元模式](docs/structral/享元/flyweight-pattern.md) (Flyweight Pattern)
-- [装饰器模式](docs/structral/装饰/decorator-pattern.md) (Decorator Pattern)
-- [组合模式](docs/structral/组合/composite-pattern.md) (Composite Pattern)
+- [代理模式](docs/structural/代理/proxy-pattern.md) (Proxy Pattern)
+- [桥接模式](docs/structural/桥/bridge-pattern.md) (Bridge Pattern)
+- [适配器模式](docs/structural/适配/adapter-pattern.md) (Adapter Pattern)
+- [外观模式](docs/structural/外观/facade-pattern.md) (Facade Pattern)
+- [享元模式](docs/structural/享元/flyweight-pattern.md) (Flyweight Pattern)
+- [装饰器模式](docs/structural/装饰/decorator-pattern.md) (Decorator Pattern)
+- [组合模式](docs/structural/组合/composite-pattern.md) (Composite Pattern)
 
 ### 行为型模式（Behavioral Patterns）
 - [访问者模式](docs/behavioral/访问者/visitor-pattern.md) (Visitor Pattern)
