@@ -348,23 +348,96 @@ public class App {
 - **组合模式**：将对象组合成树形结构
 - **访问者模式**：在不改变对象结构的情况下，为对象添加新的操作
 
-## 8. 变体和扩展
+## 8. 权威开源框架中的使用场景
 
-### 8.1 安全式组合模式
+### 8.1 JDK中的组合模式
+
+1. **AWT/Swing组件层次结构**：
+   - 所有UI组件都继承自`java.awt.Component`
+   - 容器组件（如`java.awt.Container`）可以包含其他组件
+   - 示例：`JFrame`、`JPanel`、`JButton`等组件的组合使用
+
+2. **Java集合框架**：
+   - `java.util.Collection`接口及其实现类
+   - 容器类（如`ArrayList`、`HashSet`）可以包含其他对象
+   - 示例：`List<List<String>>`这样的嵌套集合结构
+
+3. **XML DOM API**：
+   - 表示XML文档的树形结构
+   - 节点可以是元素、属性、文本等
+   - 示例：`org.w3c.dom.Node`接口及其实现类
+
+4. **文件系统API**：
+   - 表示文件和文件夹的层次结构
+   - 示例：`java.nio.file.Path`和`java.nio.file.Files`类
+
+### 8.2 Spring中的组合模式
+
+1. **Spring MVC的HandlerMapping**：
+   - 处理请求映射的层次结构
+   - 示例：`RequestMappingHandlerMapping`可以包含多个请求映射
+   - 相关类：`org.springframework.web.servlet.HandlerMapping`接口
+
+2. **Spring Security的FilterChain**：
+   - 安全过滤器的链式组合
+   - 示例：`SecurityFilterChain`中的多个`SecurityFilter`
+   - 相关类：`org.springframework.security.web.SecurityFilterChain`接口
+
+3. **Spring的Resource接口**：
+   - 统一资源访问接口
+   - 支持文件、类路径、URL等多种资源类型
+   - 示例：`ClassPathResource`、`FileSystemResource`、`UrlResource`等
+   - 相关类：`org.springframework.core.io.Resource`接口
+
+4. **Spring的ApplicationContext**：
+   - 应用上下文的层次结构
+   - 支持父上下文和子上下文
+   - 示例：`WebApplicationContext`和`ServletContextAware`
+   - 相关类：`org.springframework.context.ApplicationContext`接口
+
+### 8.3 Spring Boot中的组合模式
+
+1. **Spring Boot的Actuator端点**：
+   - 端点的层次结构
+   - 示例：`/actuator/health`和`/actuator/metrics`等端点
+   - 相关类：`org.springframework.boot.actuate.endpoint.Endpoint`接口
+
+2. **Spring Boot的自动配置类**：
+   - 自动配置类的组合
+   - 示例：`@EnableAutoConfiguration`注解加载的多个自动配置类
+   - 相关类：`org.springframework.boot.autoconfigure.AutoConfiguration`类
+
+3. **Spring Boot的健康检查指示器**：
+   - 健康检查的组合
+   - 示例：`HealthEndpoint`聚合多个`HealthIndicator`
+   - 相关类：`org.springframework.boot.actuate.health.HealthIndicator`接口
+
+4. **Spring Boot的环境配置**：
+   - 环境属性的层次结构
+   - 示例：`Environment`接口聚合多个`PropertySource`
+   - 相关类：`org.springframework.core.env.Environment`接口
+
+## 9. 变体和扩展
+
+### 9.1 安全式组合模式
 在安全式组合模式中，抽象构件只定义了所有构件共有的接口，而容器构件特有的接口（如添加、删除子构件）只在容器构件中定义。这种方式更安全，但客户端需要区分处理叶子构件和容器构件。
 
-### 8.2 透明式组合模式
+### 9.2 透明式组合模式
 在透明式组合模式中，抽象构件定义了所有构件（包括叶子构件和容器构件）的接口，包括添加、删除子构件等方法。这种方式更透明，但叶子构件需要提供这些方法的空实现。
 
-### 8.3 组合模式的扩展
+### 9.3 组合模式的扩展
 - 可以在组合模式中引入迭代器模式，方便遍历组合对象
 - 可以在组合模式中引入访问者模式，为组合对象添加新的操作
 - 可以在组合模式中引入工厂模式，简化构件的创建
 
-## 9. 总结
+## 10. 总结
 
 组合模式是一种用于处理对象层次结构的设计模式，它允许客户端统一处理单个对象和组合对象，简化了客户端代码。组合模式通过抽象构件、叶子构件和容器构件的角色划分，实现了部分-整体的层次关系。
 
-组合模式广泛应用于文件系统、GUI组件、组织结构等需要表示对象层次结构的场景。它遵循单一职责原则和开闭原则，具有良好的可扩展性和灵活性。
+组合模式广泛应用于文件系统、GUI组件、组织结构等需要表示对象层次结构的场景。在权威开源框架中，组合模式也有大量应用：
 
-在实际开发中，组合模式可以帮助我们构建清晰、灵活的对象层次结构，提高代码的可维护性和可扩展性。
+- **JDK**：AWT/Swing组件层次结构、集合框架、XML DOM API、文件系统API等
+- **Spring**：MVC的HandlerMapping、Security的FilterChain、Resource接口、ApplicationContext等
+- **Spring Boot**：Actuator端点、自动配置类、健康检查指示器、环境配置等
+
+组合模式遵循单一职责原则和开闭原则，具有良好的可扩展性和灵活性。在实际开发中，组合模式可以帮助我们构建清晰、灵活的对象层次结构，提高代码的可维护性和可扩展性。

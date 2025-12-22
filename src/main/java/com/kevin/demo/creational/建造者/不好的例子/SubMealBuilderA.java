@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.建.不好的例子;
+package com.kevin.demo.creational.建造者.不好的例子;
 
 public class SubMealBuilderA extends MealBuilder {
 

@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.单.饿汉;
+package com.kevin.demo.creational.单例.饿汉;
 
 /**
  * @author Administrator

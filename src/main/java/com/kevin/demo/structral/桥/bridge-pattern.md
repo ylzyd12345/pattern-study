@@ -140,8 +140,63 @@ public class App {
 - 桥接模式：处理两个独立变化的维度
 - 组合模式：处理对象的树形结构组合关系
 
-## 7. 总结
+## 7. 权威开源框架中的使用场景
+
+### 7.1 JDK中的桥接模式
+
+1. **AWT/Swing组件**：
+   - 抽象维度：组件类型（如Button、TextField）
+   - 实现维度：不同操作系统的外观和实现
+   - 示例：`java.awt.Component`作为抽象角色，`java.awt.Toolkit`作为实现角色，通过桥接模式实现了跨平台的UI组件
+
+2. **JDBC**：
+   - 抽象维度：JDBC API（如Connection、Statement）
+   - 实现维度：不同数据库的驱动实现
+   - 示例：`java.sql.Driver`接口作为实现角色，各数据库厂商提供具体实现，应用程序通过JDBC API（抽象角色）与不同数据库交互
+
+3. **Java NIO Channel**：
+   - 抽象维度：Channel接口
+   - 实现维度：不同I/O类型的实现（如FileChannel、SocketChannel）
+   - 示例：`java.nio.channels.Channel`接口及其多种实现类
+
+### 7.2 Spring中的桥接模式
+
+1. **Spring Data**：
+   - 抽象维度：数据访问接口（如Repository）
+   - 实现维度：不同数据存储技术的实现
+   - 示例：`org.springframework.data.repository.Repository`作为抽象角色，支持JPA、MongoDB、Redis等多种数据存储的实现
+
+2. **Spring MVC**：
+   - 抽象维度：DispatcherServlet等核心控制器
+   - 实现维度：不同视图技术的渲染实现
+   - 示例：`org.springframework.web.servlet.View`接口作为实现角色，支持JSP、Thymeleaf、FreeMarker等多种视图技术
+
+3. **Spring Transaction**：
+   - 抽象维度：事务管理器接口
+   - 实现维度：不同数据源的事务实现
+   - 示例：`org.springframework.transaction.PlatformTransactionManager`接口及其多种实现
+
+### 7.3 Spring Boot中的桥接模式
+
+1. **Spring Boot Starter**：
+   - 抽象维度：Starter的依赖管理和自动配置
+   - 实现维度：不同技术栈的具体实现
+   - 示例：`spring-boot-starter-web`作为抽象角色，封装了Tomcat、Spring MVC等实现细节
+
+2. **Spring Boot DataSource**：
+   - 抽象维度：DataSource接口
+   - 实现维度：不同数据源的实现（如HikariCP、Tomcat JDBC）
+   - 示例：通过自动配置选择不同的数据源实现，应用程序通过统一的DataSource接口访问
+
+3. **Spring Boot Security**：
+   - 抽象维度：Security配置
+   - 实现维度：不同认证方式的实现
+   - 示例：支持表单登录、OAuth2、LDAP等多种认证方式
+
+## 8. 总结
 
 桥接模式是一种强大的结构型设计模式，它通过将抽象部分与实现部分分离，实现了系统的解耦和灵活扩展。在面对多维度变化的系统设计时，桥接模式是一个理想的选择，可以有效地避免类爆炸问题，提高系统的可维护性和扩展性。
 
 使用桥接模式时，需要正确识别系统中的抽象维度和实现维度，并通过组合关系建立它们之间的桥接。遵循标准化的命名和代码规范，可以使桥接模式的实现更加清晰和易于理解。
+
+在权威开源框架如JDK、Spring和Spring Boot中，桥接模式得到了广泛应用，体现了其在实际开发中的重要价值和实用性。

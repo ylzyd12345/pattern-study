@@ -144,8 +144,58 @@ public class App {
 - 代理模式：代理一个单一对象
 - 外观模式：为子系统提供一个统一的接口
 
-## 7. 总结
+## 7. 权威开源框架中的使用场景
+
+### 7.1 JDK中的代理模式
+
+1. **动态代理（java.lang.reflect.Proxy）**：
+   - 提供了动态创建代理类的能力
+   - 允许在运行时生成代理对象，而无需预先定义代理类
+   - 示例：通过`Proxy.newProxyInstance()`方法创建实现指定接口的代理对象
+
+2. **RMI远程代理**：
+   - 为远程对象提供本地代表
+   - 允许客户端透明地访问远程对象
+   - 示例：`java.rmi.Remote`接口和`java.rmi.server.UnicastRemoteObject`类
+
+3. **网络代理**：
+   - 控制网络连接的访问
+   - 示例：`java.net.Proxy`类和`java.net.ProxySelector`接口
+
+### 7.2 Spring中的代理模式
+
+1. **AOP（面向切面编程）**：
+   - 使用代理模式实现横切关注点（如日志、事务、安全等）
+   - 支持JDK动态代理和CGLIB代理
+   - 示例：`@Aspect`注解和相关的AOP切面配置
+
+2. **Spring Security**：
+   - 使用代理模式实现方法级别的安全控制
+   - 示例：`@PreAuthorize`和`@Secured`注解的实现
+
+3. **Spring Data JPA**：
+   - 使用代理模式实现Repository接口
+   - 在运行时生成Repository的实现类
+   - 示例：通过继承`JpaRepository`接口创建数据访问层
+
+### 7.3 Spring Boot中的代理模式
+
+1. **Spring Boot Actuator**：
+   - 使用代理模式实现端点监控
+   - 示例：健康检查、指标收集等功能的实现
+
+2. **Spring Cloud Circuit Breaker**：
+   - 使用代理模式实现熔断机制
+   - 示例：Resilience4j和Hystrix的集成
+
+3. **Spring Boot Cache**：
+   - 使用代理模式实现方法级缓存
+   - 示例：`@Cacheable`和`@CacheEvict`注解的实现
+
+## 8. 总结
 
 代理模式是一种常用的结构型设计模式，它通过为原始对象提供一个代理来控制对原始对象的访问。代理模式可以增强原始对象的功能，实现客户端和原始对象之间的解耦。
 
 使用代理模式时，需要明确抽象主题、真实主题和代理之间的关系，并根据实际需求选择合适的代理类型。遵循标准化的命名和代码规范，可以使代理模式的实现更加清晰和易于理解。
+
+在权威开源框架如JDK、Spring和Spring Boot中，代理模式得到了广泛应用，体现了其在实际开发中的重要价值和实用性。

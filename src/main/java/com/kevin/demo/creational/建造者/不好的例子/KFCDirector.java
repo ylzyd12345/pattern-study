@@ -1,6 +1,6 @@
-package com.kevin.demo.creational.建.不好的例子;
+package com.kevin.demo.creational.建造者.不好的例子;
 
-import com.kevin.demo.creational.建.不好的例子.MealBuilder.Meal;
+import com.kevin.demo.creational.建造者.不好的例子.MealBuilder.Meal;
 
 public class KFCDirector {
 	private MealBuilder mealBuilder;

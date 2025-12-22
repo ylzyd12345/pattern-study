@@ -356,8 +356,108 @@ public class App {
 - 可以使用迭代器模式来遍历装饰类
 - 可以使用观察者模式来通知装饰类状态的变化
 
-## 9. 总结
+## 9. 权威开源框架中的使用场景
+
+### 9.1 JDK中的装饰模式
+
+1. **Java IO流体系**：
+   - 最经典的装饰模式应用
+   - 提供了丰富的流装饰器
+   - 示例：`BufferedReader`装饰`Reader`，`DataInputStream`装饰`InputStream`
+   - 相关类：`java.io.InputStream`、`java.io.OutputStream`、`java.io.Reader`、`java.io.Writer`及其子类
+
+2. **Java集合框架**：
+   - 提供了多种集合装饰器
+   - 示例：`Collections.synchronizedList()`、`Collections.unmodifiableList()`等
+   - 相关类：`java.util.Collections`类的静态方法
+
+3. **Java NIO的Channel**：
+   - 提供了通道装饰器
+   - 示例：`Channels.newInputStream()`、`Channels.newOutputStream()`等
+   - 相关类：`java.nio.channels.Channels`类
+
+4. **Java Swing组件**：
+   - 提供了GUI组件装饰器
+   - 示例：`JScrollPane`装饰`JPanel`，`JLabel`装饰`ImageIcon`
+   - 相关类：`javax.swing.JComponent`及其子类
+
+5. **Java Security的包装类**：
+   - 提供了安全相关的装饰器
+   - 示例：`javax.crypto.CipherInputStream`装饰`InputStream`
+   - 相关类：`javax.crypto.CipherInputStream`、`javax.crypto.CipherOutputStream`等
+
+### 9.2 Spring中的装饰模式
+
+1. **Spring AOP**：
+   - 使用装饰模式实现面向切面编程
+   - 动态地为Bean添加横切关注点
+   - 示例：事务管理、日志记录、权限控制等
+   - 相关类：`org.springframework.aop.framework.ProxyFactory`、`org.springframework.aop.framework.ProxyFactoryBean`等
+
+2. **Spring Cache**：
+   - 使用装饰模式实现缓存功能
+   - 动态地为方法添加缓存能力
+   - 示例：`@Cacheable`、`@CachePut`、`@CacheEvict`等注解
+   - 相关类：`org.springframework.cache.interceptor.CacheInterceptor`类
+
+3. **Spring Security**：
+   - 使用装饰模式实现安全功能
+   - 动态地为请求添加安全检查
+   - 示例：认证、授权、CSRF防护等
+   - 相关类：`org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter`类
+
+4. **Spring MVC的HandlerInterceptor**：
+   - 使用装饰模式实现请求拦截
+   - 动态地为请求添加拦截逻辑
+   - 示例：日志记录、权限检查、性能监控等
+   - 相关类：`org.springframework.web.servlet.HandlerInterceptor`接口
+
+5. **Spring的BeanWrapper**：
+   - 使用装饰模式实现Bean属性访问
+   - 动态地为Bean添加属性访问能力
+   - 示例：`BeanWrapper.setPropertyValue()`和`BeanWrapper.getPropertyValue()`方法
+   - 相关类：`org.springframework.beans.BeanWrapper`接口
+
+### 9.3 Spring Boot中的装饰模式
+
+1. **Spring Boot的自动配置装饰器**：
+   - 使用装饰模式实现自动配置
+   - 动态地为应用添加配置功能
+   - 示例：`@EnableAutoConfiguration`注解加载的自动配置类
+   - 相关类：`org.springframework.boot.autoconfigure.EnableAutoConfiguration`注解
+
+2. **Spring Boot的健康检查装饰器**：
+   - 使用装饰模式实现健康检查
+   - 动态地为应用添加健康检查能力
+   - 示例：`HealthIndicator`接口的实现类
+   - 相关类：`org.springframework.boot.actuate.health.HealthIndicator`接口
+
+3. **Spring Boot的日志装饰器**：
+   - 使用装饰模式实现日志功能
+   - 动态地为应用添加日志能力
+   - 示例：`@Slf4j`注解生成的日志对象
+   - 相关类：`org.slf4j.Logger`接口
+
+4. **Spring Boot的Web装饰器**：
+   - 使用装饰模式实现Web功能
+   - 动态地为应用添加Web能力
+   - 示例：`WebMvcConfigurer`接口的实现类
+   - 相关类：`org.springframework.web.servlet.config.annotation.WebMvcConfigurer`接口
+
+5. **Spring Boot的数据源装饰器**：
+   - 使用装饰模式实现数据源功能
+   - 动态地为数据源添加监控、连接池等能力
+   - 示例：`HikariDataSource`装饰`DataSource`
+   - 相关类：`com.zaxxer.hikari.HikariDataSource`类
+
+## 10. 总结
 
 装饰模式是一种灵活的扩展对象功能的方式，它允许动态地为对象添加额外的责任或功能，而不影响其他对象。装饰模式提供了一种比继承更灵活的扩展方式，可以避免使用继承导致的类爆炸问题。
 
-装饰模式广泛应用于Java IO流、Swing GUI组件、Spring框架等领域，它是一种非常实用的设计模式。在实际开发中，我们应该根据具体的需求选择合适的设计模式，以提高代码的可维护性和可扩展性。
+在权威开源框架中，装饰模式有大量应用：
+
+- **JDK**：Java IO流体系、集合框架、NIO的Channel、Swing组件、Security的包装类等
+- **Spring**：AOP、Cache、Security、MVC的HandlerInterceptor、BeanWrapper等
+- **Spring Boot**：自动配置装饰器、健康检查装饰器、日志装饰器、Web装饰器、数据源装饰器等
+
+装饰模式是一种非常实用的设计模式，它广泛应用于各种领域。在实际开发中，我们应该根据具体的需求选择合适的设计模式，以提高代码的可维护性和可扩展性。

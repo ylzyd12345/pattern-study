@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 public class DatabaseLogFactory  implements LogFactory{
 

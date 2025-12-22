@@ -57,163 +57,164 @@
 ### 3.1 抽象产品接口
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 抽象产品A接口
  */
 public interface AbstractProductA {
-    void operationA();
+   void operationA();
 }
 ```
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 抽象产品B接口
  */
 public interface AbstractProductB {
-    void operationB();
+   void operationB();
 }
 ```
 
 ### 3.2 具体产品类
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 具体产品A1
  */
 public class ConcreteProductA1 implements AbstractProductA {
-    @Override
-    public void operationA() {
-        System.out.println("ConcreteProductA1 operationA");
-    }
+   @Override
+   public void operationA() {
+      System.out.println("ConcreteProductA1 operationA");
+   }
 }
 ```
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 具体产品A2
  */
 public class ConcreteProductA2 implements AbstractProductA {
-    @Override
-    public void operationA() {
-        System.out.println("ConcreteProductA2 operationA");
-    }
+   @Override
+   public void operationA() {
+      System.out.println("ConcreteProductA2 operationA");
+   }
 }
 ```
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 具体产品B1
  */
 public class ConcreteProductB1 implements AbstractProductB {
-    @Override
-    public void operationB() {
-        System.out.println("ConcreteProductB1 operationB");
-    }
+   @Override
+   public void operationB() {
+      System.out.println("ConcreteProductB1 operationB");
+   }
 }
 ```
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 具体产品B2
  */
 public class ConcreteProductB2 implements AbstractProductB {
-    @Override
-    public void operationB() {
-        System.out.println("ConcreteProductB2 operationB");
-    }
+   @Override
+   public void operationB() {
+      System.out.println("ConcreteProductB2 operationB");
+   }
 }
 ```
 
 ### 3.3 抽象工厂接口
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 抽象工厂接口
  */
 public interface AbstractFactory {
-    AbstractProductA createProductA();
-    AbstractProductB createProductB();
+   AbstractProductA createProductA();
+
+   AbstractProductB createProductB();
 }
 ```
 
 ### 3.4 具体工厂类
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 具体工厂1
  */
 public class ConcreteFactory1 implements AbstractFactory {
-    @Override
-    public AbstractProductA createProductA() {
-        return new ConcreteProductA1();
-    }
+   @Override
+   public AbstractProductA createProductA() {
+      return new ConcreteProductA1();
+   }
 
-    @Override
-    public AbstractProductB createProductB() {
-        return new ConcreteProductB1();
-    }
+   @Override
+   public AbstractProductB createProductB() {
+      return new ConcreteProductB1();
+   }
 }
 ```
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 具体工厂2
  */
 public class ConcreteFactory2 implements AbstractFactory {
-    @Override
-    public AbstractProductA createProductA() {
-        return new ConcreteProductA2();
-    }
+   @Override
+   public AbstractProductA createProductA() {
+      return new ConcreteProductA2();
+   }
 
-    @Override
-    public AbstractProductB createProductB() {
-        return new ConcreteProductB2();
-    }
+   @Override
+   public AbstractProductB createProductB() {
+      return new ConcreteProductB2();
+   }
 }
 ```
 
 ### 3.5 客户端类
 
 ```java
-package com.kevin.demo.creational.工and抽.抽象工厂;
+package com.kevin.demo.creational.工厂.抽象工厂;
 
 /**
  * 客户端类
  */
 public class App {
-    public static void main(String[] args) {
-        // 使用具体工厂1创建产品家族
-        AbstractFactory factory1 = new ConcreteFactory1();
-        AbstractProductA productA1 = factory1.createProductA();
-        AbstractProductB productB1 = factory1.createProductB();
-        productA1.operationA();
-        productB1.operationB();
-        
-        // 使用具体工厂2创建产品家族
-        AbstractFactory factory2 = new ConcreteFactory2();
-        AbstractProductA productA2 = factory2.createProductA();
-        AbstractProductB productB2 = factory2.createProductB();
-        productA2.operationA();
-        productB2.operationB();
-    }
+   public static void main(String[] args) {
+      // 使用具体工厂1创建产品家族
+      AbstractFactory factory1 = new ConcreteFactory1();
+      AbstractProductA productA1 = factory1.createProductA();
+      AbstractProductB productB1 = factory1.createProductB();
+      productA1.operationA();
+      productB1.operationB();
+
+      // 使用具体工厂2创建产品家族
+      AbstractFactory factory2 = new ConcreteFactory2();
+      AbstractProductA productA2 = factory2.createProductA();
+      AbstractProductB productB2 = factory2.createProductB();
+      productA2.operationA();
+      productB2.operationB();
+   }
 }
 ```
 

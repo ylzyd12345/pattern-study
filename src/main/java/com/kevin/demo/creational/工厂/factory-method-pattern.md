@@ -45,118 +45,118 @@
 ### 3.1 抽象产品类
 
 ```java
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 /**
  * 抽象产品接口
  */
 public interface Product {
-    void operation();
+   void operation();
 }
 ```
 
 ### 3.2 具体产品类
 
 ```java
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 /**
  * 具体产品A
  */
 public class ConcreteProductA implements Product {
-    @Override
-    public void operation() {
-        System.out.println("ConcreteProductA operation");
-    }
+   @Override
+   public void operation() {
+      System.out.println("ConcreteProductA operation");
+   }
 }
 ```
 
 ```java
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 /**
  * 具体产品B
  */
 public class ConcreteProductB implements Product {
-    @Override
-    public void operation() {
-        System.out.println("ConcreteProductB operation");
-    }
+   @Override
+   public void operation() {
+      System.out.println("ConcreteProductB operation");
+   }
 }
 ```
 
 ### 3.3 抽象工厂类
 
 ```java
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 /**
  * 抽象工厂类
  */
 public abstract class Creator {
-    /**
-     * 工厂方法
-     */
-    public abstract Product factoryMethod();
-    
-    /**
-     * 使用产品的方法
-     */
-    public void useProduct() {
-        Product product = factoryMethod();
-        product.operation();
-    }
+   /**
+    * 工厂方法
+    */
+   public abstract Product factoryMethod();
+
+   /**
+    * 使用产品的方法
+    */
+   public void useProduct() {
+      Product product = factoryMethod();
+      product.operation();
+   }
 }
 ```
 
 ### 3.4 具体工厂类
 
 ```java
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 /**
  * 具体工厂A
  */
 public class ConcreteCreatorA extends Creator {
-    @Override
-    public Product factoryMethod() {
-        return new ConcreteProductA();
-    }
+   @Override
+   public Product factoryMethod() {
+      return new ConcreteProductA();
+   }
 }
 ```
 
 ```java
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 /**
  * 具体工厂B
  */
 public class ConcreteCreatorB extends Creator {
-    @Override
-    public Product factoryMethod() {
-        return new ConcreteProductB();
-    }
+   @Override
+   public Product factoryMethod() {
+      return new ConcreteProductB();
+   }
 }
 ```
 
 ### 3.5 客户端类
 
 ```java
-package com.kevin.demo.creational.工and抽.工厂方法;
+package com.kevin.demo.creational.工厂.工厂方法;
 
 /**
  * 客户端类
  */
 public class App {
-    public static void main(String[] args) {
-        // 创建具体工厂A
-        Creator creatorA = new ConcreteCreatorA();
-        creatorA.useProduct();
-        
-        // 创建具体工厂B
-        Creator creatorB = new ConcreteCreatorB();
-        creatorB.useProduct();
-    }
+   public static void main(String[] args) {
+      // 创建具体工厂A
+      Creator creatorA = new ConcreteCreatorA();
+      creatorA.useProduct();
+
+      // 创建具体工厂B
+      Creator creatorB = new ConcreteCreatorB();
+      creatorB.useProduct();
+   }
 }
 ```
 

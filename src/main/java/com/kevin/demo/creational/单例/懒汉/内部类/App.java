@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.单.懒汉.内部类;
+package com.kevin.demo.creational.单例.懒汉.内部类;
 
 /**
  * @author Administrator

@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.单.懒汉.双检;
+package com.kevin.demo.creational.单例.懒汉.双检;
 
 /**
  * @author Administrator

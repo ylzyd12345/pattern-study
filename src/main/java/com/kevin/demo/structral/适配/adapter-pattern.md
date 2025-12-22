@@ -129,8 +129,75 @@ public class App {
 - 适配器模式：改变接口的形式
 - 代理模式：保留原始接口，增加额外的功能
 
-## 7. 总结
+## 7. 权威开源框架中的使用场景
+
+### 7.1 JDK中的适配器模式
+
+1. **字节流与字符流的适配**：
+   - 将字节流转换为字符流，实现不同I/O流之间的适配
+   - 示例：`java.io.InputStreamReader`和`java.io.OutputStreamWriter`
+   - `InputStreamReader`将`InputStream`（字节流）适配为`Reader`（字符流）
+
+2. **数组与集合的适配**：
+   - 将数组转换为集合接口，使数组可以使用集合的方法
+   - 示例：`java.util.Arrays.asList()`方法
+   - 返回一个基于数组的`List`视图
+
+3. **Enumeration与Iterator的适配**：
+   - 将旧的`Enumeration`接口适配为新的`Iterator`接口
+   - 示例：`java.util.Collections.list()`和`java.util.Collections.enumeration()`方法
+
+4. **Swing组件适配**：
+   - 为不同的Swing组件提供统一的接口
+   - 示例：`javax.swing.table.TableModel`和`javax.swing.ListModel`的适配器
+
+### 7.2 Spring中的适配器模式
+
+1. **Spring MVC的HandlerAdapter**：
+   - 适配不同类型的处理器（Controller），使它们可以统一处理请求
+   - 示例：`SimpleControllerHandlerAdapter`、`RequestMappingHandlerAdapter`等
+   - 相关类：`org.springframework.web.servlet.HandlerAdapter`接口
+
+2. **Spring AOP的AdvisorAdapter**：
+   - 适配不同类型的Advisor，使它们可以统一被AOP框架使用
+   - 示例：`MethodBeforeAdviceAdapter`、`AfterReturningAdviceAdapter`等
+   - 相关类：`org.springframework.aop.framework.adapter.AdvisorAdapter`接口
+
+3. **Spring JPA的JpaVendorAdapter**：
+   - 适配不同的JPA实现厂商（如Hibernate、EclipseLink）
+   - 示例：`HibernateJpaVendorAdapter`、`EclipseLinkJpaVendorAdapter`等
+   - 相关类：`org.springframework.orm.jpa.JpaVendorAdapter`接口
+
+4. **Spring的WebMvcConfigurerAdapter**：
+   - 为`WebMvcConfigurer`接口提供默认实现，方便用户扩展
+   - 虽然在Spring 5中已被`@Configuration`和直接实现接口替代，但体现了适配器模式思想
+
+### 7.3 Spring Boot中的适配器模式
+
+1. **Spring Boot的PropertySourceLoader**：
+   - 适配不同格式的配置文件（如properties、yaml）
+   - 示例：`PropertiesPropertySourceLoader`、`YamlPropertySourceLoader`等
+   - 相关类：`org.springframework.boot.env.PropertySourceLoader`接口
+
+2. **Spring Boot的ApplicationRunner和CommandLineRunner**：
+   - 适配不同类型的应用启动后执行逻辑
+   - 示例：`ApplicationRunner`和`CommandLineRunner`接口的实现类
+   - 相关类：`org.springframework.boot.ApplicationRunner`接口
+
+3. **Spring Boot的WebServerFactoryCustomizer**：
+   - 适配不同的Web服务器工厂（如Tomcat、Jetty）
+   - 示例：`TomcatWebServerFactoryCustomizer`、`JettyWebServerFactoryCustomizer`等
+   - 相关类：`org.springframework.boot.web.server.WebServerFactoryCustomizer`接口
+
+4. **Spring Boot的DataSourceInitializer**：
+   - 适配不同的数据源，执行初始化脚本
+   - 示例：对不同数据库执行SQL脚本
+   - 相关类：`org.springframework.boot.jdbc.DataSourceInitializer`类
+
+## 8. 总结
 
 适配器模式是一种强大的结构型设计模式，它可以解决接口不兼容的问题，使原本无法一起工作的类能够协同工作。在系统集成和代码复用场景中，适配器模式是一个理想的选择。
 
 使用适配器模式时，需要明确目标接口、被适配者和适配器的关系，并根据实际情况选择合适的适配器实现方式。遵循标准化的命名和代码规范，可以使适配器模式的实现更加清晰和易于理解。
+
+在权威开源框架如JDK、Spring和Spring Boot中，适配器模式得到了广泛应用，体现了其在解决接口兼容性问题和实现系统集成方面的重要价值。

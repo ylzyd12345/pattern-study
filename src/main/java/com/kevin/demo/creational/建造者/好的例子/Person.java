@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.建.好的例子;
+package com.kevin.demo.creational.建造者.好的例子;
 
 public class Person {
 	private String name;

@@ -277,8 +277,94 @@ del point
 ### 8.3 外观类的缓存
 可以在外观类中添加缓存机制，缓存子系统的计算结果，避免重复计算。
 
-## 9. 总结
+## 9. 权威开源框架中的使用场景
+
+### 9.1 JDK中的外观模式
+
+1. **JDBC API**：
+   - 提供了对数据库操作的统一接口
+   - 封装了不同数据库驱动的复杂性
+   - 示例：`java.sql.DriverManager`类提供了获取数据库连接的统一入口
+   - 相关类：`java.sql.Connection`、`java.sql.Statement`、`java.sql.ResultSet`等
+
+2. **Java NIO.2 API**：
+   - 提供了对文件系统操作的统一接口
+   - 封装了不同操作系统文件系统的复杂性
+   - 示例：`java.nio.file.Files`类提供了文件操作的统一方法
+   - 相关类：`java.nio.file.Path`、`java.nio.file.FileSystems`等
+
+3. **Java Logging API**：
+   - 提供了对日志记录的统一接口
+   - 封装了不同日志实现的复杂性
+   - 示例：`java.util.logging.Logger`类提供了日志记录的统一方法
+   - 相关类：`java.util.logging.LogManager`、`java.util.logging.Handler`等
+
+4. **Java Security API**：
+   - 提供了对安全操作的统一接口
+   - 封装了不同安全实现的复杂性
+   - 示例：`java.security.SecureRandom`类提供了安全随机数生成的统一方法
+   - 相关类：`java.security.MessageDigest`、`java.security.KeyStore`等
+
+### 9.2 Spring中的外观模式
+
+1. **Spring的JdbcTemplate**：
+   - 提供了对JDBC操作的简化封装
+   - 封装了JDBC的样板代码
+   - 示例：`JdbcTemplate.query()`和`JdbcTemplate.update()`方法
+   - 相关类：`org.springframework.jdbc.core.JdbcTemplate`类
+
+2. **Spring的TransactionTemplate**：
+   - 提供了对事务操作的简化封装
+   - 封装了事务管理的复杂性
+   - 示例：`TransactionTemplate.execute()`方法
+   - 相关类：`org.springframework.transaction.support.TransactionTemplate`类
+
+3. **Spring的RestTemplate**：
+   - 提供了对RESTful API调用的简化封装
+   - 封装了HTTP客户端的复杂性
+   - 示例：`RestTemplate.getForObject()`和`RestTemplate.postForObject()`方法
+   - 相关类：`org.springframework.web.client.RestTemplate`类
+
+4. **Spring的ApplicationContext**：
+   - 提供了对Spring容器的统一访问接口
+   - 封装了BeanFactory等底层组件的复杂性
+   - 示例：`applicationContext.getBean()`方法
+   - 相关类：`org.springframework.context.ApplicationContext`接口
+
+### 9.3 Spring Boot中的外观模式
+
+1. **Spring Boot的SpringApplication**：
+   - 提供了Spring Boot应用的统一入口点
+   - 封装了Spring应用初始化的复杂性
+   - 示例：`SpringApplication.run()`方法
+   - 相关类：`org.springframework.boot.SpringApplication`类
+
+2. **Spring Boot的@SpringBootApplication注解**：
+   - 提供了对多个Spring Boot注解的统一封装
+   - 简化了Spring Boot应用的配置
+   - 示例：`@SpringBootApplication`注解组合了`@SpringBootConfiguration`、`@EnableAutoConfiguration`和`@ComponentScan`
+   - 相关类：`org.springframework.boot.autoconfigure.SpringBootApplication`注解
+
+3. **Spring Boot的AutoConfiguration**：
+   - 提供了自动配置Spring应用的统一机制
+   - 封装了Spring配置的复杂性
+   - 示例：`@EnableAutoConfiguration`注解自动加载多个配置类
+   - 相关类：`org.springframework.boot.autoconfigure.AutoConfiguration`类
+
+4. **Spring Boot的Actuator**：
+   - 提供了对Spring Boot应用监控的统一接口
+   - 封装了监控指标收集的复杂性
+   - 示例：`/actuator/health`和`/actuator/metrics`等端点
+   - 相关类：`org.springframework.boot.actuate.endpoint.Endpoint`接口
+
+## 10. 总结
 
 外观模式是一种简单而实用的设计模式，它通过提供一个统一的入口点，简化了客户端与复杂子系统之间的交互。外观模式降低了客户端与子系统之间的耦合度，提高了系统的易用性和可维护性。
+
+在权威开源框架中，外观模式也有大量应用：
+
+- **JDK**：JDBC API、Java NIO.2 API、Java Logging API、Java Security API等
+- **Spring**：JdbcTemplate、TransactionTemplate、RestTemplate、ApplicationContext等
+- **Spring Boot**：SpringApplication、@SpringBootApplication注解、AutoConfiguration、Actuator等
 
 在实际开发中，外观模式常用于构建框架的API接口、应用程序的主界面、企业应用的服务层等场景。它是实现系统分层设计、降低系统复杂度的重要手段之一。

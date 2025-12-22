@@ -139,8 +139,65 @@ public class App {
 - 享元模式：关注对象的共享和复用
 - 池化技术：关注对象的创建和销毁管理
 
-## 7. 总结
+## 7. 权威开源框架中的使用场景
+
+### 7.1 JDK中的享元模式
+
+1. **字符串常量池**：
+   - 共享相同的字符串对象，减少内存占用
+   - 示例：`String s1 = "hello"; String s2 = "hello";` 此时s1和s2引用同一个对象
+   - 相关类：`java.lang.String`和字符串常量池实现
+
+2. **包装类缓存**：
+   - 对常用数值范围的包装类对象进行缓存
+   - 示例：`Integer.valueOf(123)`会返回缓存的对象，而不是创建新对象
+   - 相关类：`java.lang.Integer`, `java.lang.Boolean`, `java.lang.Character`等
+
+3. **正则表达式**：
+   - 缓存编译后的正则表达式模式
+   - 示例：`java.util.regex.Pattern`的静态工厂方法
+
+4. **Java集合框架**：
+   - 内部使用享元模式优化性能
+   - 示例：`java.util.EnumSet`和`java.util.BitSet`的实现
+
+### 7.2 Spring中的享元模式
+
+1. **Spring Bean容器**：
+   - 对于单例作用域的Bean，容器会缓存并共享同一个实例
+   - 示例：通过`@Bean`或`<bean>`定义的单例Bean
+   - 相关类：`org.springframework.beans.factory.support.DefaultSingletonBeanRegistry`
+
+2. **Spring MVC**：
+   - 缓存视图对象以提高性能
+   - 示例：`InternalResourceViewResolver`对视图的缓存
+   - 相关类：`org.springframework.web.servlet.view.AbstractCachingViewResolver`
+
+3. **Spring AOP**：
+   - 缓存切面表达式和代理对象
+   - 示例：`Pointcut`表达式的编译结果缓存
+   - 相关类：`org.springframework.aop.aspectj.AspectJExpressionPointcut`
+
+### 7.3 Spring Boot中的享元模式
+
+1. **自动配置类缓存**：
+   - 缓存已加载的自动配置类
+   - 示例：`SpringApplication`对自动配置类的管理
+   - 相关类：`org.springframework.boot.autoconfigure.AutoConfigurationImportSelector`
+
+2. **条件评估缓存**：
+   - 缓存条件注解的评估结果
+   - 示例：`@Conditional`系列注解的实现
+   - 相关类：`org.springframework.boot.autoconfigure.condition.ConditionEvaluator`
+
+3. **日志配置**：
+   - 共享日志配置对象
+   - 示例：`SpringBootLoggingSystem`的实现
+
+## 8. 总结
 
 享元模式是一种高效的结构型设计模式，它通过共享相同或相似的对象来减少内存使用和提高性能。在系统中存在大量相似对象的场景下，享元模式是一个理想的选择。
 
 使用享元模式时，需要正确划分内部状态和外部状态，并通过享元工厂来管理享元对象的创建和共享。遵循标准化的命名和代码规范，可以使享元模式的实现更加清晰和易于理解。
+
+在权威开源框架如JDK、Spring和Spring Boot中，享元模式得到了广泛应用，体现了其在优化内存使用和提高系统性能方面的重要价值。
