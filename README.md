@@ -1,8 +1,100 @@
-# pattern-study
+# 设计模式学习项目 (pattern-study)
+
+[![Java](https://img.shields.io/badge/Java-8%2B-blue.svg)](https://www.oracle.com/java/)
+[![Maven](https://img.shields.io/badge/Maven-3.0%2B-green.svg)](https://maven.apache.org/)
+[![JUnit](https://img.shields.io/badge/JUnit-5-orange.svg)](https://junit.org/junit5/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 
 > I see and I forget, I hear and I remember, I do and I understand.
+
+## 项目概述
+
+这是一个全面的Java设计模式学习项目，包含了23种经典设计模式的实现和详细说明。项目旨在帮助开发者理解设计模式的概念、应用场景和实现方式，提高代码设计能力。
+
+### 学习目标
+
+- 掌握23种经典设计模式的核心概念和实现方式
+- 理解每种设计模式的适用场景和优缺点
+- 学习如何在实际项目中应用设计模式
+- 提高代码的可维护性、可扩展性和可复用性
+- 培养良好的软件设计思维
+
+## 快速开始
+
+### 环境要求
+
+- JDK 8 或更高版本
+- Maven 3.0 或更高版本
+
+### 克隆项目
+
+```bash
+git clone https://github.com/your-username/pattern-study.git
+cd pattern-study
+```
+
+### 构建项目
+
+```bash
+mvn clean compile
+```
+
+### 运行测试
+
+```bash
+mvn test
+```
+
+### 运行示例
+
+每个设计模式都有一个App.java类用于演示，例如单例模式：
+
+```bash
+cd src/main/java/com/kevin/demo/creational/单例/饿汉
+javac *.java
+java App
+```
+
+## 项目结构
+
+项目采用标准的Maven目录结构：
+
+```
+pattern-study/
+├── src/
+│   ├── main/
+│   │   ├── java/com/kevin/demo/     # 主要代码
+│   │   │   ├── creational/          # 创建型模式
+│   │   │   ├── structral/           # 结构型模式
+│   │   │   └── behavioral/          # 行为型模式
+│   │   └── resources/               # 资源文件
+│   └── test/
+│       └── java/com/kevin/demo/     # 测试代码
+├── pom.xml                          # Maven配置文件
+├── README.md                        # 项目说明文档
+└── LICENSE                          # 许可证文件
+```
+
+## 贡献指南
+
+欢迎贡献代码或提出改进建议！请遵循以下步骤：
+
+1. Fork 本项目
+2. 创建一个新的分支 (`git checkout -b feature/improvement`)
+3. 提交你的修改 (`git commit -am 'Add some improvement'`)
+4. 推送到分支 (`git push origin feature/improvement`)
+5. 创建一个 Pull Request
+
+### 贡献要求
+
+- 代码风格保持一致
+- 添加必要的Javadoc注释
+- 为新功能添加单元测试
+- 确保所有测试通过
+- 更新相关文档
+
 
 ## 设计模式一句话归纳
 设计模式是软件开发中针对常见问题的可复用解决方案，是经过反复验证的最佳实践，用于提高代码的可维护性、可扩展性和可复用性。
@@ -17,33 +109,79 @@
 ## 设计模式导航
 
 ### 创建型模式（Creational Patterns）
-- [单例模式](src/main/java/com/kevin/demo/creational/单例/singleton-pattern.md) (Singleton Pattern)
-- [抽象工厂模式](src/main/java/com/kevin/demo/creational/抽象工厂/abstract-factory-pattern.md) (Abstract Factory Pattern)
-- [工厂方法模式](src/main/java/com/kevin/demo/creational/工厂/factory-method-pattern.md) (Factory Method Pattern)
-- [建造者模式](src/main/java/com/kevin/demo/creational/建造者/builder-pattern.md) (Builder Pattern)
-- [原型模式](src/main/java/com/kevin/demo/creational/原/prototype-pattern.md) (Prototype Pattern)
+- [单例模式](docs/creational/单例/singleton-pattern.md) (Singleton Pattern)
+- [抽象工厂模式](docs/creational/抽象工厂/abstract-factory-pattern.md) (Abstract Factory Pattern)
+- [工厂方法模式](docs/creational/工厂/factory-method-pattern.md) (Factory Method Pattern)
+- [建造者模式](docs/creational/建造者/builder-pattern.md) (Builder Pattern)
+- [原型模式](docs/creational/原/prototype-pattern.md) (Prototype Pattern)
 
 ### 结构型模式（Structural Patterns）
-- [代理模式](src/main/java/com/kevin/demo/structral/代理/proxy-pattern.md) (Proxy Pattern)
-- [桥接模式](src/main/java/com/kevin/demo/structral/桥/bridge-pattern.md) (Bridge Pattern)
-- [适配器模式](src/main/java/com/kevin/demo/structral/适配/adapter-pattern.md) (Adapter Pattern)
-- [外观模式](src/main/java/com/kevin/demo/structral/外观/facade-pattern.md) (Facade Pattern)
-- [享元模式](src/main/java/com/kevin/demo/structral/享元/flyweight-pattern.md) (Flyweight Pattern)
-- [装饰器模式](src/main/java/com/kevin/demo/structral/装饰/decorator-pattern.md) (Decorator Pattern)
-- [组合模式](src/main/java/com/kevin/demo/structral/组合/composite-pattern.md) (Composite Pattern)
+- [代理模式](docs/structral/代理/proxy-pattern.md) (Proxy Pattern)
+- [桥接模式](docs/structral/桥/bridge-pattern.md) (Bridge Pattern)
+- [适配器模式](docs/structral/适配/adapter-pattern.md) (Adapter Pattern)
+- [外观模式](docs/structral/外观/facade-pattern.md) (Facade Pattern)
+- [享元模式](docs/structral/享元/flyweight-pattern.md) (Flyweight Pattern)
+- [装饰器模式](docs/structral/装饰/decorator-pattern.md) (Decorator Pattern)
+- [组合模式](docs/structral/组合/composite-pattern.md) (Composite Pattern)
 
 ### 行为型模式（Behavioral Patterns）
-- [访问者模式](src/main/java/com/kevin/demo/behavioral/访问者/visitor-pattern.md) (Visitor Pattern)
-- [策略模式](src/main/java/com/kevin/demo/behavioral/策略/strategy-pattern.md) (Strategy Pattern)
-- [备忘录模式](src/main/java/com/kevin/demo/behavioral/备忘录/memento-pattern.md) (Memento Pattern)
-- [观察者模式](src/main/java/com/kevin/demo/behavioral/观察者/observer-pattern.md) (Observer Pattern)
-- [模板方法模式](src/main/java/com/kevin/demo/behavioral/模板/template-method-pattern.md) (Template Method Pattern)
-- [迭代器模式](src/main/java/com/kevin/demo/behavioral/迭代/iterator-pattern.md) (Iterator Pattern)
-- [状态模式](src/main/java/com/kevin/demo/behavioral/状态/state-pattern.md) (State Pattern)
-- [命令模式](src/main/java/com/kevin/demo/behavioral/命令/command-pattern.md) (Command Pattern)
-- [中介者模式](src/main/java/com/kevin/demo/behavioral/中介/mediator-pattern.md) (Mediator Pattern)
-- [解释器模式](src/main/java/com/kevin/demo/behavioral/解释/interpreter-pattern.md) (Interpreter Pattern)
-- [责任链模式](src/main/java/com/kevin/demo/behavioral/责任链/chain-of-responsibility-pattern.md) (Chain of Responsibility Pattern)
+- [访问者模式](docs/behavioral/访问者/visitor-pattern.md) (Visitor Pattern)
+- [策略模式](docs/behavioral/策略/strategy-pattern.md) (Strategy Pattern)
+- [备忘录模式](docs/behavioral/备忘录/memento-pattern.md) (Memento Pattern)
+- [观察者模式](docs/behavioral/观察者/observer-pattern.md) (Observer Pattern)
+- [模板方法模式](docs/behavioral/模板/template-method-pattern.md) (Template Method Pattern)
+- [迭代器模式](docs/behavioral/迭代/iterator-pattern.md) (Iterator Pattern)
+- [状态模式](docs/behavioral/状态/state-pattern.md) (State Pattern)
+- [命令模式](docs/behavioral/命令/command-pattern.md) (Command Pattern)
+- [中介者模式](docs/behavioral/中介/mediator-pattern.md) (Mediator Pattern)
+- [解释器模式](docs/behavioral/解释/interpreter-pattern.md) (Interpreter Pattern)
+- [责任链模式](docs/behavioral/责任链/chain-of-responsibility-pattern.md) (Chain of Responsibility Pattern)
+
+## 设计模式学习路径
+
+为了帮助您更有效地学习设计模式，我们推荐以下学习路径：
+
+### 入门阶段（基础模式）
+1. **单例模式** - 最基础的设计模式，理解全局唯一实例的概念
+2. **工厂方法模式** - 理解对象创建的封装和多态
+3. **策略模式** - 理解算法的封装和替换
+4. **观察者模式** - 理解对象间的通信机制
+5. **装饰器模式** - 理解动态扩展对象功能的方式
+
+### 进阶阶段（常用模式）
+6. **抽象工厂模式** - 学习产品族的创建
+7. **建造者模式** - 学习复杂对象的构建
+8. **原型模式** - 学习对象的复制
+9. **代理模式** - 学习对象访问的控制
+10. **外观模式** - 学习简化复杂系统的使用
+
+### 高级阶段（复杂模式）
+11. **命令模式** - 学习请求的封装和处理
+12. **状态模式** - 学习对象状态与行为的关系
+13. **责任链模式** - 学习请求的链式处理
+14. **迭代器模式** - 学习集合的遍历
+15. **模板方法模式** - 学习算法骨架的定义
+
+### 专家阶段（特殊场景模式）
+16. **桥接模式** - 学习多维度扩展的处理
+17. **适配器模式** - 学习接口不兼容的处理
+18. **享元模式** - 学习对象的共享
+19. **组合模式** - 学习树形结构的处理
+20. **备忘录模式** - 学习状态的保存和恢复
+
+### 大师阶段（高级应用模式）
+21. **中介者模式** - 学习对象间交互的协调
+22. **解释器模式** - 学习特定语言的解释
+23. **访问者模式** - 学习对象结构的操作
+
+### 学习建议
+- 每个模式学习时间建议：1-2天
+- 先理解概念，再看代码实现
+- 尝试自己实现每个模式
+- 思考每个模式的适用场景
+- 对比相似模式的区别和联系
+
+通过以上路径学习，您将逐步掌握23种经典设计模式，提高您的软件设计能力。
 
 ## 23种设计模式概述
 
