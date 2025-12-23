@@ -44,74 +44,70 @@ jobs:
         cp -r target/site/apidocs _site/javadoc/
         
         # Create _config.yml for Jekyll
-        cat > _site/_config.yml << EOF
-title: "设计模式学习项目"
-description: "23种Java设计模式的完整实现和详细说明"
-theme: jekyll-theme-cayman
-markdown: kramdown
-highlighter: rouge
-plugins:
-  - jekyll-sitemap
-  - jekyll-feed
-EOF
+        echo 'title: "设计模式学习项目"' > _site/_config.yml
+        echo 'description: "23种Java设计模式的完整实现和详细说明"' >> _site/_config.yml
+        echo 'theme: jekyll-theme-cayman' >> _site/_config.yml
+        echo 'markdown: kramdown' >> _site/_config.yml
+        echo 'highlighter: rouge' >> _site/_config.yml
+        echo 'plugins:' >> _site/_config.yml
+        echo '  - jekyll-sitemap' >> _site/_config.yml
+        echo '  - jekyll-feed' >> _site/_config.yml
         
         # Create index.html for Jekyll
-        cat > _site/index.html << 'EOF'
----
-layout: default
-title: 设计模式学习项目
----
-
-# 设计模式学习项目
-
-欢迎访问设计模式学习项目的完整文档！
-
-## 📚 快速导航
-
-- [📖 项目首页](index.md)
-- [❓ 常见问题](faq.md)
-- [📝 更新日志](changelog.md)
-- [🌳 设计模式决策树](design-pattern-decision-tree.md)
-- [📊 性能对比分析](performance-comparison.md)
-- [💻 代码示例导航](code-examples.md)
-
-## 🏗️ 设计模式分类
-
-### 创建型模式
-- [单例模式](creational/单例/singleton-pattern.md)
-- [工厂方法](creational/工厂/factory-method-pattern.md)
-- [抽象工厂](creational/抽象工厂/abstract-factory-pattern.md)
-- [建造者模式](creational/建造者/builder-pattern.md)
-- [原型模式](creational/原/prototype-pattern.md)
-
-### 结构型模式
-- [适配器模式](structural/适配/adapter-pattern.md)
-- [桥接模式](structural/桥/bridge-pattern.md)
-- [组合模式](structural/组合/composite-pattern.md)
-- [装饰器模式](structural/装饰/decorator-pattern.md)
-- [外观模式](structural/外观/facade-pattern.md)
-- [享元模式](structural/享元/flyweight-pattern.md)
-- [代理模式](structural/代理/proxy-pattern.md)
-
-### 行为型模式
-- [责任链模式](behavioral/责任链/chain-of-responsibility-pattern.md)
-- [命令模式](behavioral/命令/command-pattern.md)
-- [解释器模式](behavioral/解释/interpreter-pattern.md)
-- [迭代器模式](behavioral/迭代/iterator-pattern.md)
-- [中介者模式](behavioral/中介/mediator-pattern.md)
-- [备忘录模式](behavioral/备忘录/memento-pattern.md)
-- [观察者模式](behavioral/观察者/observer-pattern.md)
-- [状态模式](behavioral/状态/state-pattern.md)
-- [策略模式](behavioral/策略/strategy-pattern.md)
-- [模板方法模式](behavioral/模板/template-method-pattern.md)
-- [访问者模式](behavioral/访问者/visitor-pattern.md)
-
-## 🔗 链接
-
-- [GitHub仓库](https://github.com/ylzyd12345/pattern-study)
-- [问题反馈](https://github.com/ylzyd12345/pattern-study/issues)
-- [讨论区](https://github.com/ylzyd12345/pattern-study/discussions)
-EOF
+        echo '---' > _site/index.html
+        echo 'layout: default' >> _site/index.html
+        echo 'title: 设计模式学习项目' >> _site/index.html
+        echo '---' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '# 设计模式学习项目' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '欢迎访问设计模式学习项目的完整文档！' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '## 📚 快速导航' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '- [📖 项目首页](index.md)' >> _site/index.html
+        echo '- [❓ 常见问题](faq.md)' >> _site/index.html
+        echo '- [📝 更新日志](changelog.md)' >> _site/index.html
+        echo '- [🌳 设计模式决策树](design-pattern-decision-tree.md)' >> _site/index.html
+        echo '- [📊 性能对比分析](performance-comparison.md)' >> _site/index.html
+        echo '- [💻 代码示例导航](code-examples.md)' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '## 🏗️ 设计模式分类' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '### 创建型模式' >> _site/index.html
+        echo '- [单例模式](creational/单例/singleton-pattern.md)' >> _site/index.html
+        echo '- [工厂方法](creational/工厂/factory-method-pattern.md)' >> _site/index.html
+        echo '- [抽象工厂](creational/抽象工厂/abstract-factory-pattern.md)' >> _site/index.html
+        echo '- [建造者模式](creational/建造者/builder-pattern.md)' >> _site/index.html
+        echo '- [原型模式](creational/原/prototype-pattern.md)' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '### 结构型模式' >> _site/index.html
+        echo '- [适配器模式](structural/适配/adapter-pattern.md)' >> _site/index.html
+        echo '- [桥接模式](structural/桥/bridge-pattern.md)' >> _site/index.html
+        echo '- [组合模式](structural/组合/composite-pattern.md)' >> _site/index.html
+        echo '- [装饰器模式](structural/装饰/decorator-pattern.md)' >> _site/index.html
+        echo '- [外观模式](structural/外观/facade-pattern.md)' >> _site/index.html
+        echo '- [享元模式](structural/享元/flyweight-pattern.md)' >> _site/index.html
+        echo '- [代理模式](structural/代理/proxy-pattern.md)' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '### 行为型模式' >> _site/index.html
+        echo '- [责任链模式](behavioral/责任链/chain-of-responsibility-pattern.md)' >> _site/index.html
+        echo '- [命令模式](behavioral/命令/command-pattern.md)' >> _site/index.html
+        echo '- [解释器模式](behavioral/解释/interpreter-pattern.md)' >> _site/index.html
+        echo '- [迭代器模式](behavioral/迭代/iterator-pattern.md)' >> _site/index.html
+        echo '- [中介者模式](behavioral/中介/mediator-pattern.md)' >> _site/index.html
+        echo '- [备忘录模式](behavioral/备忘录/memento-pattern.md)' >> _site/index.html
+        echo '- [观察者模式](behavioral/观察者/observer-pattern.md)' >> _site/index.html
+        echo '- [状态模式](behavioral/状态/state-pattern.md)' >> _site/index.html
+        echo '- [策略模式](behavioral/策略/strategy-pattern.md)' >> _site/index.html
+        echo '- [模板方法模式](behavioral/模板/template-method-pattern.md)' >> _site/index.html
+        echo '- [访问者模式](behavioral/访问者/visitor-pattern.md)' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '## 🔗 链接' >> _site/index.html
+        echo '' >> _site/index.html
+        echo '- [GitHub仓库](https://github.com/ylzyd12345/pattern-study)' >> _site/index.html
+        echo '- [问题反馈](https://github.com/ylzyd12345/pattern-study/issues)' >> _site/index.html
+        echo '- [讨论区](https://github.com/ylzyd12345/pattern-study/discussions)' >> _site/index.html
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v4
       with:
