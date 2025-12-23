@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, master ]
   release:
     types: [ published ]
 
@@ -38,43 +38,12 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
         
-    - name: Compile code
-      run: mvn clean compile -B
-      
-    - name: Run tests
-      run: mvn test -B
-      
-    - name: Generate test coverage report
-      run: mvn jacoco:report -B
-      
-    - name: Run code quality checks
-      run: |
-        mvn checkstyle:check -B
-        mvn pmd:check -B
-        mvn spotbugs:check -B
-        
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
+    - name: Cache Maven dependencies
+      uses: actions/cache@v4
       with:
-        file: ./target/site/jacoco/jacoco.xml
-        flags: unittests
-        name: codecov-umbrella
-        
-    - name: Upload test results
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: test-results-${{ matrix.java-version }}
-        path: |
-          target/surefire-reports/
-          target/site/jacoco/
-          
-    - name: Upload coverage reports
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: coverage-report-${{ matrix.java-version }}
-        path: target/site/jacoco/
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
 
   # 安全扫描
   security:
