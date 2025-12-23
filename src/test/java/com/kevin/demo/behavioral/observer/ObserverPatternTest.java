@@ -1,5 +1,6 @@
 package com.kevin.demo.behavioral.observer;
 
+import com.kevin.demo.BasePatternTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -17,7 +18,7 @@ import java.util.Observer;
  * @since 1.0.0
  */
 @DisplayName("观察者模式测试")
-class ObserverPatternTest {
+class ObserverPatternTest extends BasePatternTest {
 
     private WeatherStation weatherStation;
     private WeatherApp weatherApp;

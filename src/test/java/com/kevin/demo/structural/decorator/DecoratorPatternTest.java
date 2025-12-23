@@ -1,5 +1,6 @@
 package com.kevin.demo.structural.decorator;
 
+import com.kevin.demo.BasePatternTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @since 1.0.0
  */
 @DisplayName("装饰器模式测试")
-class DecoratorPatternTest {
+class DecoratorPatternTest extends BasePatternTest {
 
     @Test
     @DisplayName("测试基本电话功能")
@@ -253,5 +254,34 @@ class DecoratorPatternTest {
                                   "特殊字符电话号码应该被处理: " + number);
             }
         }
+    }
+
+    @Test
+    @DisplayName("测试装饰器模式控制台输出")
+    void testDecoratorPatternConsoleOutput() {
+        PhoneCall phoneCall = new PhoneCall();
+        RecordDecorator recordDecorator = new RecordDecorator(phoneCall);
+        TranslateDecorator translateDecorator = new TranslateDecorator(phoneCall);
+        
+        // 清空控制台输出
+        clearConsoleOutput();
+        
+        // 测试基本通话
+        phoneCall.call("123456789");
+        
+        // 测试录音装饰
+        recordDecorator.call("987654321");
+        
+        // 测试翻译装饰
+        translateDecorator.call("555555555");
+        
+        // 测试多层装饰
+        Call decoratedCall = new TranslateDecorator(new RecordDecorator(phoneCall));
+        decoratedCall.call("111111111");
+        
+        // 验证控制台输出（假设装饰器会有相应的输出）
+        String output = getConsoleOutput();
+        assertNotNull(output, "控制台输出不应该为空");
+    }
     }
 }

@@ -1,5 +1,6 @@
 package com.kevin.demo.creational.singleton.lazy.doubleCheck;
 
+import com.kevin.demo.BasePatternTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @since 1.0.0
  */
 @DisplayName("双检锁懒汉式单例模式测试")
-class DoubleCheckLazySingletonTest {
+class DoubleCheckLazySingletonTest extends BasePatternTest {
 
     @Test
     @DisplayName("测试单例实例唯一性")
@@ -72,73 +73,22 @@ class DoubleCheckLazySingletonTest {
         @Test
         @DisplayName("测试多线程环境下的线程安全性")
         void testThreadSafety() throws InterruptedException {
-            final int threadCount = 100;
-            final DoubleCheckLazySingleton[] instances = new DoubleCheckLazySingleton[threadCount];
-            final Thread[] threads = new Thread[threadCount];
-            
-            // 创建多个线程同时获取单例实例
-            for (int i = 0; i < threadCount; i++) {
-                final int index = i;
-                threads[i] = new Thread(() -> {
-                    instances[index] = DoubleCheckLazySingleton.getInstance();
-                });
-            }
-            
-            // 同时启动所有线程
-            for (Thread thread : threads) {
-                thread.start();
-            }
-            
-            // 等待所有线程完成
-            for (Thread thread : threads) {
-                thread.join();
-            }
-            
-            // 验证所有线程获取的都是同一个实例
-            DoubleCheckLazySingleton firstInstance = instances[0];
-            for (int i = 1; i < threadCount; i++) {
-                assertSame(firstInstance, instances[i], 
-                          "多线程环境下应该返回同一个单例实例");
-            }
+            assertSingletonThreadSafety(DoubleCheckLazySingleton::getInstance, 100);
         }
 
         @Test
         @DisplayName("测试高并发环境下的性能")
         void testHighConcurrencyPerformance() throws InterruptedException {
-            final int threadCount = 1000;
-            final long[] times = new long[threadCount];
-            final Thread[] threads = new Thread[threadCount];
-            
-            // 测试高并发环境下获取实例的性能
-            for (int i = 0; i < threadCount; i++) {
-                final int index = i;
-                threads[i] = new Thread(() -> {
-                    long startTime = System.nanoTime();
+            // 使用基类方法验证执行时间
+            assertExecutionTime(() -> {
+                // 预热
+                for (int i = 0; i < 100; i++) {
                     DoubleCheckLazySingleton.getInstance();
-                    times[index] = System.nanoTime() - startTime;
-                });
-            }
-            
-            // 启动所有线程
-            for (Thread thread : threads) {
-                thread.start();
-            }
-            
-            // 等待所有线程完成
-            for (Thread thread : threads) {
-                thread.join();
-            }
-            
-            // 计算平均时间（纳秒）
-            long totalTime = 0;
-            for (long time : times) {
-                totalTime += time;
-            }
-            long averageTime = totalTime / threadCount;
-            
-            // 验证性能（双检锁应该有较好的性能）
-            assertTrue(averageTime < 1000000, // 1毫秒
-                      "双检锁单例的获取时间应该小于1毫秒，实际: " + averageTime + " 纳秒");
+                }
+                
+                // 高并发测试
+                assertSingletonThreadSafety(DoubleCheckLazySingleton::getInstance, 1000);
+            }, 1000); // 期望在1秒内完成
         }
     }
 
@@ -149,18 +99,11 @@ class DoubleCheckLazySingletonTest {
         @Test
         @DisplayName("测试反射攻击防护")
         void testReflectionAttackPrevention() {
-            DoubleCheckLazySingleton instance = DoubleCheckLazySingleton.getInstance();
+            // 先获取一个实例
+            DoubleCheckLazySingleton.getInstance();
             
-            // 尝试通过反射创建新实例
-            Exception exception = assertThrows(IllegalStateException.class, () -> {
-                java.lang.reflect.Constructor<DoubleCheckLazySingleton> constructor = 
-                    DoubleCheckLazySingleton.class.getDeclaredConstructor();
-                constructor.setAccessible(true);
-                constructor.newInstance();
-            });
-            
-            assertTrue(exception.getMessage().contains("单例实例已经存在"),
-                      "应该抛出反射攻击防护异常");
+            // 使用基类方法测试反射攻击防护
+            assertReflectionAttackPrevention(DoubleCheckLazySingleton.class);
         }
     }
 

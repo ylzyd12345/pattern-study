@@ -16,6 +16,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>${java.version}</maven.compiler.release>
+        <lombok.version>1.18.42</lombok.version>
         <junit.version>5.10.2</junit.version>
         <mockito.version>5.11.0</mockito.version>
         <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
@@ -28,6 +29,12 @@
     </properties>
 
     <dependencies>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>org.projectlombok:lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
         <!-- JUnit 5 for unit testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -58,7 +65,7 @@
 
     <build>
         <plugins>
-<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
@@ -92,7 +99,7 @@
                     </argLine>
                 </configuration>
             </plugin>
-            
+
             <!-- Maven Failsafe Plugin for integration tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -120,7 +127,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <!-- JaCoCo Maven Plugin for code coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -174,7 +181,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <!-- Checkstyle Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -195,7 +202,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <!-- PMD Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -218,7 +225,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <!-- SpotBugs Plugin -->
             <plugin>
                 <groupId>com.github.spotbugs</groupId>

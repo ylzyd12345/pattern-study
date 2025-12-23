@@ -1,5 +1,6 @@
 package com.kevin.demo.creational.factory.factoryMethod;
 
+import com.kevin.demo.BasePatternTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @since 1.0.0
  */
 @DisplayName("工厂方法模式测试")
-class LogFactoryTest {
+class LogFactoryTest extends BasePatternTest {
 
     @Test
     @DisplayName("测试数据库日志工厂创建数据库日志")
@@ -244,5 +245,21 @@ class LogFactoryTest {
         
         assertEquals(result1, result2, "同一工厂创建的对象行为应该一致");
         assertTrue(result1.contains("文件日志记录"), "结果应该包含正确的标识");
+    }
+
+    @Test
+    @DisplayName("测试日志控制台输出")
+    void testLogConsoleOutput() {
+        LogFactory factory = new DatabaseLogFactory();
+        Log log = factory.createLog();
+        
+        // 清空控制台输出
+        clearConsoleOutput();
+        
+        // 记录日志
+        log.record("测试消息");
+        
+        // 验证控制台输出
+        assertConsoleOutputContains("数据库日志记录: 测试消息");
     }
 }

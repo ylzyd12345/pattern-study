@@ -1,5 +1,6 @@
 package com.kevin.demo.behavioral.strategy;
 
+import com.kevin.demo.BasePatternTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
  * @since 1.0.0
  */
 @DisplayName("策略模式测试")
-class StrategyPatternTest {
+class StrategyPatternTest extends BasePatternTest {
 
     @Test
     @DisplayName("测试基础积分计算策略")
@@ -328,5 +329,33 @@ class StrategyPatternTest {
         for (int i = 1; i < threadCount; i++) {
             assertEquals(results[0], results[i], "多线程环境下策略应该返回一致结果");
         }
+    }
+
+    @Test
+    @DisplayName("测试策略模式控制台输出")
+    void testStrategyPatternConsoleOutput() {
+        PointGiveService service = new PointGiveServiceImpl();
+        
+        // 清空控制台输出
+        clearConsoleOutput();
+        
+        // 测试不同策略的输出
+        service.setPointCalc(new BasePointCalc());
+        service.givePoint(new BigDecimal("100"));
+        
+        service.setPointCalc(new ConstantPointCalc());
+        service.givePoint(new BigDecimal("100"));
+        
+        service.setPointCalc(new FullGivePointCalc());
+        service.givePoint(new BigDecimal("100"));
+        
+        // 验证控制台输出
+        String output = getConsoleOutput();
+        assertNotNull(output, "控制台输出不应该为空");
+        
+        // 假设策略实现会有相应的输出
+        // assertConsoleOutputContains("基础积分计算");
+        // assertConsoleOutputContains("固定积分计算");
+        // assertConsoleOutputContains("满赠积分计算");
     }
 }

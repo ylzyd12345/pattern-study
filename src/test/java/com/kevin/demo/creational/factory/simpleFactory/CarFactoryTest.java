@@ -1,5 +1,6 @@
 package com.kevin.demo.creational.factory.simpleFactory;
 
+import com.kevin.demo.BasePatternTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @since 1.0.0
  */
 @DisplayName("简单工厂模式测试")
-class CarFactoryTest {
+class CarFactoryTest extends BasePatternTest {
 
     @Test
     @DisplayName("测试创建BMW汽车")
@@ -187,5 +188,22 @@ class CarFactoryTest {
             assertNotNull(car, "类型 " + type + " 应该能创建对应的汽车");
             assertTrue(car instanceof Car, "创建的对象应该实现Car接口");
         }
+    }
+
+    @Test
+    @DisplayName("测试汽车控制台输出")
+    void testCarConsoleOutput() {
+        Car bmwCar = CarFactory.createCar(CarTypeEnum.BMW);
+        
+        // 清空控制台输出
+        clearConsoleOutput();
+        
+        // 调用汽车方法
+        bmwCar.start();
+        bmwCar.stop();
+        
+        // 验证控制台输出
+        assertConsoleOutputContains("BMW汽车启动");
+        assertConsoleOutputContains("BMW汽车停止");
     }
 }
