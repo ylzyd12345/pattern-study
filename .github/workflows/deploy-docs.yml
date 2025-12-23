@@ -2,7 +2,7 @@ name: Deploy Documentation
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
     paths: [ 'docs/**', 'README.md', 'CHANGELOG.md', 'FAQ.md', '**.md' ]
   workflow_dispatch:
 
@@ -113,7 +113,7 @@ title: 设计模式学习项目
 - [讨论区](https://github.com/ylzyd12345/pattern-study/discussions)
 EOF
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v4
       with:
         path: './_site'
 
