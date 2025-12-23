@@ -11,11 +11,11 @@
     <description>A comprehensive study of design patterns in Java</description>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>${java.version}</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.42</lombok.version>
         <junit.version>5.10.2</junit.version>
         <mockito.version>5.11.0</mockito.version>

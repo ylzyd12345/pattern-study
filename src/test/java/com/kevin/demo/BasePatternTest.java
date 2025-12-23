@@ -126,7 +126,7 @@ public abstract class BasePatternTest {
      */
     protected <T> void assertReflectionAttackPrevention(Class<T> singletonClass) {
         try {
-            var constructor = singletonClass.getDeclaredConstructor();
+            java.lang.reflect.Constructor<T> constructor = singletonClass.getDeclaredConstructor();
             constructor.setAccessible(true);
             constructor.newInstance();
             throw new AssertionError("反射攻击防护测试失败：应该抛出异常");
