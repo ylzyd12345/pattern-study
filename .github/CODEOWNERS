@@ -1,0 +1,16 @@
+# Code Owners Configuration
+
+# 整个仓库的所有者
+* @ylzyd12345
+
+# 特定目录的所有者
+/docs/ @ylzyd12345
+/src/main/java/com/kevin/demo/ @ylzyd12345
+/.github/ @ylzyd12345
+
+# 重大变更需要多个审核者
+*.md @ylzyd12345
+pom.xml @ylzyd12345
+
+# 紧急修复可以自动合并
+[hotfix] @ylzyd12345

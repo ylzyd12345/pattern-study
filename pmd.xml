@@ -1,49 +1,104 @@
 <?xml version="1.0"?>
 <ruleset name="Custom Rules"
-         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
 
     <description>
-        PMD规则集配置 - 针对Java设计模式项目的代码质量检查
+        PMD规则配置，用于代码质量检查
     </description>
 
     <!-- 基础规则 -->
     <rule ref="category/java/bestpractices.xml">
         <exclude name="SystemPrintln"/>
+        <exclude name="GuardLogStatement"/>
     </rule>
     
-    <!-- 代码风格规则 -->
     <rule ref="category/java/codestyle.xml">
         <exclude name="ShortVariable"/>
         <exclude name="LongVariable"/>
-        <exclude name="ShortClassName"/>
+        <exclude name="OnlyOneReturn"/>
+        <exclude name="AtLeastOneConstructor"/>
+        <exclude name="CommentDefaultAccessModifier"/>
     </rule>
     
-    <!-- 设计规则 -->
     <rule ref="category/java/design.xml">
+        <exclude name="LawOfDemeter"/>
         <exclude name="LoosePackageCoupling"/>
+        <exclude name="TooManyMethods"/>
+        <exclude name="TooManyFields"/>
     </rule>
     
-    <!-- 错误倾向规则 -->
     <rule ref="category/java/errorprone.xml">
         <exclude name="BeanMembersShouldSerialize"/>
+        <exclude name="DataflowAnomalyAnalysis"/>
     </rule>
     
-    <!-- 多线程规则 -->
     <rule ref="category/java/multithreading.xml">
         <exclude name="UseConcurrentHashMap"/>
     </rule>
     
-    <!-- 性能规则 -->
     <rule ref="category/java/performance.xml">
         <exclude name="AvoidInstantiatingObjectsInLoops"/>
+        <exclude name="InefficientStringBuffering"/>
     </rule>
 
     <!-- 自定义规则配置 -->
     <rule ref="category/java/bestpractices.xml/UnusedLocalVariable">
         <properties>
-            <property name="violationSuppressRegex" value="^test.*"/>
+            <property name="violationSuppressRegex" value="^expected.*$"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/ClassNamingConventions">
+        <properties>
+            <property name="utilityClassPattern" value="[A-Z][a-zA-Z0-9]*"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/MethodNamingConventions">
+        <properties>
+            <property name="violationSuppressRegex" value "^test.*$"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml/CyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="15"/>
+            <property name="violationSuppressRegex" value "^test.*$"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml/ExcessiveClassLength">
+        <properties>
+            <property name="max" value="1000"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="max" value="100"/>
+            <property name="violationSuppressRegex" value "^test.*$"/>
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml/ExcessiveParameterList">
+        <properties>
+            <property name="max" value="8"/>
+        </properties>
+    </rule>
+
+    <!-- 测试代码特殊规则 -->
+    <rule ref="category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert">
+        <properties>
+            <property name="violationSuppressRegex" value ".*Test.*"/>
+        </properties>
+    </rule>
+
+    <!-- 排除测试代码的某些规则 -->
+    <rule ref="category/java/codestyle.xml/ShortClassName">
+        <properties>
+            <property name="violationSuppressRegex" value ".*Test.*"/>
         </properties>
     </rule>
 

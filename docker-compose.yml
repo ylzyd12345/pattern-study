@@ -1,0 +1,115 @@
+version: '3.8'
+
+services:
+  # 设计模式学习应用
+  pattern-study:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pattern-study-app
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTS=-Xmx512m -Xms256m -XX:+UseG1GC
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config
+    networks:
+      - pattern-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # 数据库 (可选，用于演示)
+  postgres:
+    image: postgres:15-alpine
+    container_name: pattern-study-db
+    environment:
+      - POSTGRES_DB=pattern_study
+      - POSTGRES_USER=pattern_user
+      - POSTGRES_PASSWORD=pattern_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks:
+      - pattern-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pattern_user -d pattern_study"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis (可选，用于缓存演示)
+  redis:
+    image: redis:7-alpine
+    container_name: pattern-study-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - pattern-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # 监控 - Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: pattern-study-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - pattern-network
+    restart: unless-stopped
+
+  # 监控 - Grafana
+  grafana:
+    image: grafana/grafana:latest
+    container_name: pattern-study-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - pattern-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  pattern-network:
+    driver: bridge

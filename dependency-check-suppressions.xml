@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/suppressions.1.3.xsd">
+    <!-- 
+    依赖检查忽略规则配置文件
+    用于配置已知误报或不影响项目的依赖漏洞
+    -->
+    
+    <!-- 示例：忽略特定CVE -->
+    <!--
+    <suppress>
+        <notes><![CDATA[
+        这个CVE在测试环境中不会造成影响
+        ]]></notes>
+        <cve>CVE-2021-44228</cve>
+    </suppress>
+    -->
+    
+    <!-- 示例：忽略特定文件的漏洞 -->
+    <!--
+    <suppress>
+        <notes><![CDATA[
+        测试依赖的漏洞可以忽略
+        ]]></notes>
+        <filePath regex="true">.*test.*</filePath>
+    </suppress>
+    -->
+    
+    <!-- 示例：忽略特定版本的漏洞 -->
+    <!--
+    <suppress>
+        <notes><![CDATA[
+        特定版本的安全问题已通过其他方式解决
+        ]]></notes>
+        <gav regex="true">.*junit.*:.*</gav>
+        <versionRange>4.13.2</versionRange>
+    </suppress>
+    -->
+</suppressions>
