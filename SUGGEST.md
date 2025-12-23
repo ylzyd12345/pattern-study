@@ -6,12 +6,109 @@
 **现状问题**: 27个测试文件中多数只是简单调用main方法，实际测试覆盖率低于20%
 
 **详细任务清单**:
-- [ ] 使用JUnit 5+Mockito重写所有测试用例
-- [ ] 配置JaCoCo代码覆盖率报告，目标80%+
-- [ ] 为每个设计模式添加完整的单元测试
-- [ ] 增加集成测试示例
-- [ ] 为所有设计模式实现添加单元测试
-- [ ] 确保测试覆盖率达到80%以上
+
+#### 📋 1.1 测试框架配置和基础设施
+- [ ] **升级测试依赖**: 确保使用JUnit 5.8+和Mockito 4.0+
+- [ ] **配置JaCoCo插件**: 添加代码覆盖率检查，目标80%+
+- [ ] **创建测试基类**: 建立统一的测试基类和工具类
+- [ ] **配置测试资源**: 创建测试数据和模拟对象
+- [ ] **设置测试报告**: 配置Surefire和Failsafe插件
+
+#### 📋 1.2 创建型模式测试重构 (5种模式)
+- [ ] **单例模式测试**:
+  - [ ] 饿汉式单例线程安全测试
+  - [ ] 懒汉式单例延迟加载测试
+  - [ ] 双重检查锁单例测试
+  - [ ] 静态内部类单例测试
+  - [ ] 枚举单例测试
+  - [ ] 单例模式反射攻击防护测试
+- [ ] **工厂模式测试**:
+  - [ ] 简单工厂模式测试
+  - [ ] 工厂方法模式测试
+  - [ ] 抽象工厂模式测试
+  - [ ] 工厂模式扩展性测试
+- [ ] **建造者模式测试**:
+  - [ ] 建造者模式链式调用测试
+  - [ ] 建造者模式参数验证测试
+  - [ ] 建造者模式不可变对象测试
+- [ ] **原型模式测试**:
+  - [ ] 浅拷贝原型测试
+  - [ ] 深拷贝原型测试
+  - [ ] 原型模式注册表测试
+
+#### 📋 1.3 结构型模式测试重构 (7种模式)
+- [ ] **适配器模式测试**:
+  - [ ] 类适配器测试
+  - [ ] 对象适配器测试
+  - [ ] 接口适配器测试
+- [ ] **桥接模式测试**:
+  - [ ] 桥接模式抽象层测试
+  - [ ] 桥接模式实现层测试
+- [ ] **组合模式测试**:
+  - [ ] 组合模式树形结构测试
+  - [ ] 组合模式统一接口测试
+- [ ] **装饰器模式测试**:
+  - [ ] 装饰器模式动态扩展测试
+  - [ ] 装饰器模式多层装饰测试
+- [ ] **外观模式测试**:
+  - [ ] 外观模式简化接口测试
+  - [ ] 外观模式系统解耦测试
+- [ ] **享元模式测试**:
+  - [ ] 享元模式对象共享测试
+  - [ ] 享元模式内存优化测试
+- [ ] **代理模式测试**:
+  - [ ] 静态代理测试
+  - [ ] 动态代理测试
+  - [ ] CGLIB代理测试
+
+#### 📋 1.4 行为型模式测试重构 (11种模式)
+- [ ] **责任链模式测试**:
+  - [ ] 责任链模式请求传递测试
+  - [ ] 责任链模式动态配置测试
+- [ ] **命令模式测试**:
+  - [ ] 命令模式封装测试
+  - [ ] 命令模式撤销重做测试
+- [ ] **解释器模式测试**:
+  - [ ] 解释器模式语法解析测试
+  - [ ] 解释器模式表达式求值测试
+- [ ] **迭代器模式测试**:
+  - [ ] 迭代器模式遍历测试
+  - [ ] 迭代器模式集合解耦测试
+- [ ] **中介者模式测试**:
+  - [ ] 中介者模式对象协调测试
+  - [ ] 中介者模式松耦合测试
+- [ ] **备忘录模式测试**:
+  - [ ] 备忘录模式状态保存测试
+  - [ ] 备忘录模式状态恢复测试
+- [ ] **观察者模式测试**:
+  - [ ] 观察者模式事件通知测试
+  - [ ] 观察者模式一对多关系测试
+- [ ] **状态模式测试**:
+  - [ ] 状态模式状态转换测试
+  - [ ] 状态模式行为切换测试
+- [ ] **策略模式测试**:
+  - [ ] 策略模式算法封装测试
+  - [ ] 策略模式动态切换测试
+- [ ] **模板方法模式测试**:
+  - [ ] 模板方法模式算法骨架测试
+  - [ ] 模板方法模式步骤扩展测试
+- [ ] **访问者模式测试**:
+  - [ ] 访问者模式操作分离测试
+  - [ ] 访问者模式结构稳定测试
+
+#### 📋 1.5 测试质量保证
+- [ ] **边界条件测试**: 为每个模式添加边界条件测试用例
+- [ ] **异常处理测试**: 测试异常情况下的行为
+- [ ] **性能测试**: 关键模式的性能基准测试
+- [ ] **并发测试**: 单例模式等需要线程安全的并发测试
+- [ ] **集成测试**: 模式组合使用的集成测试
+- [ ] **回归测试**: 确保重构不破坏现有功能
+
+#### 📋 1.6 测试文档和示例
+- [ ] **测试文档**: 为每个测试类添加详细的测试说明
+- [ ] **测试数据**: 创建标准化的测试数据集
+- [ ] **测试报告**: 生成详细的测试覆盖率报告
+- [ ] **最佳实践**: 编写测试最佳实践指南
 
 ### 🔴 2. **CI/CD自动化** (高优先级)
 **现状问题**: 完全缺少自动化构建和测试流程
@@ -142,16 +239,46 @@
 **目标**: 建立项目的基础工程能力
 
 **任务清单**:
-- [ ] 重写测试套件，配置JaCoCo
-- [ ] 创建代码质量配置文件 (checkstyle.xml, pmd.xml)
-- [ ] 添加GitHub Actions CI/CD
-- [ ] 配置代码格式化工具
-- [ ] 统一代码风格和命名规范
+
+#### 📋 测试体系重构任务 (第1周)
+- [ ] **Day 1-2**: 测试框架配置
+  - [ ] 升级JUnit 5.8+和Mockito 4.0+依赖
+  - [ ] 配置JaCoCo插件，设置80%覆盖率目标
+  - [ ] 创建测试基类和工具类
+  - [ ] 配置Surefire和Failsafe插件
+- [ ] **Day 3-4**: 创建型模式测试重构
+  - [ ] 单例模式6种变体的完整测试
+  - [ ] 工厂模式3种实现的测试用例
+  - [ ] 建造者模式测试
+  - [ ] 原型模式测试
+- [ ] **Day 5-7**: 结构型模式测试重构
+  - [ ] 适配器、桥接、组合模式测试
+  - [ ] 装饰器、外观、享元模式测试
+  - [ ] 代理模式测试
+  - [ ] 边界条件和异常处理测试
+
+#### 📋 CI/CD和代码质量任务 (第2周)
+- [ ] **Day 8-9**: CI/CD配置
+  - [ ] 创建GitHub Actions工作流
+  - [ ] 配置多版本JDK矩阵构建(8/11/17/21)
+  - [ ] 集成测试覆盖率报告
+- [ ] **Day 10-11**: 代码质量配置
+  - [ ] 创建checkstyle.xml配置文件
+  - [ ] 创建pmd.xml配置文件
+  - [ ] 配置代码格式化工具
+- [ ] **Day 12-14**: 行为型模式测试重构
+  - [ ] 责任链、命令、解释器模式测试
+  - [ ] 迭代器、中介者、备忘录模式测试
+  - [ ] 观察者、状态、策略模式测试
+  - [ ] 模板方法、访问者模式测试
+  - [ ] 集成测试和性能测试
 
 **预期成果**:
 - 测试覆盖率达到80%+
+- 23种设计模式的完整测试套件
 - 自动化构建和测试流程
 - 代码质量检查工具正常运行
+- 详细的测试覆盖率报告
 
 ### 🟠 第二阶段 (1个月) - 质量提升
 **目标**: 提升代码质量和文档完整性
@@ -205,38 +332,253 @@
 
 ### 测试体系重构详细任务
 
-#### 单元测试重写
-```markdown
-- [ ] 单例模式测试 (6种实现变体)
-- [ ] 工厂模式测试 (简单工厂+工厂方法+抽象工厂)
-- [ ] 建造者模式测试 (好坏对比)
-- [ ] 结构型模式测试 (7种)
-- [ ] 行为型模式测试 (11种)
+#### 测试框架配置示例
+
+**Maven依赖配置**:
+```xml
+<dependencies>
+    <!-- JUnit 5 -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.9.2</version>
+        <scope>test</scope>
+    </dependency>
+    
+    <!-- Mockito -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>4.11.0</version>
+        <scope>test</scope>
+    </dependency>
+    
+    <!-- AssertJ for fluent assertions -->
+    <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>3.24.2</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+
+**测试基类示例**:
+```java
+@ExtendWith(MockitoExtension.class)
+public abstract class BasePatternTest {
+    
+    @Mock
+    protected Logger logger;
+    
+    protected ByteArrayOutputStream outputStream;
+    
+    @BeforeEach
+    void setUp() {
+        outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+    }
+    
+    @AfterEach
+    void tearDown() {
+        System.setOut(System.out);
+    }
+    
+    protected void assertConsoleOutputContains(String expected) {
+        assertThat(outputStream.toString()).contains(expected);
+    }
+    
+    protected void assertInstanceOf(Class<?> expectedClass, Object actual) {
+        assertThat(actual).isInstanceOf(expectedClass);
+    }
+}
+```
+
+#### 单元测试重写示例
+
+**单例模式测试示例**:
+```java
+class EagerSingletonTest extends BasePatternTest {
+    
+    @Test
+    @DisplayName("应该返回相同的实例")
+    void shouldReturnSameInstance() {
+        // Given
+        EagerSingleton instance1 = EagerSingleton.getInstance();
+        EagerSingleton instance2 = EagerSingleton.getInstance();
+        
+        // Then
+        assertThat(instance1).isSameAs(instance2);
+    }
+    
+    @Test
+    @DisplayName("应该线程安全")
+    void shouldBeThreadSafe() throws InterruptedException {
+        // Given
+        int threadCount = 100;
+        CountDownLatch latch = new CountDownLatch(threadCount);
+        Set<EagerSingleton> instances = ConcurrentHashMap.newKeySet();
+        
+        // When
+        for (int i = 0; i < threadCount; i++) {
+            new Thread(() -> {
+                instances.add(EagerSingleton.getInstance());
+                latch.countDown();
+            }).start();
+        }
+        
+        latch.await();
+        
+        // Then
+        assertThat(instances).hasSize(1);
+    }
+    
+    @Test
+    @DisplayName("应该防止反射攻击")
+    void shouldPreventReflectionAttack() {
+        // Given
+        Constructor<EagerSingleton> constructor = 
+            EagerSingleton.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        
+        // When & Then
+        assertThatThrownBy(constructor::newInstance)
+            .hasCauseInstanceOf(UnsupportedOperationException.class)
+            .hasMessageContaining("Cannot create instance through reflection");
+    }
+}
+```
+
+**策略模式测试示例**:
+```java
+class StrategyPatternTest extends BasePatternTest {
+    
+    @Test
+    @DisplayName("应该能够动态切换策略")
+    void shouldDynamicallySwitchStrategy() {
+        // Given
+        Context context = new Context(new ConcreteStrategyA());
+        
+        // When
+        String result1 = context.executeStrategy();
+        context.setStrategy(new ConcreteStrategyB());
+        String result2 = context.executeStrategy();
+        
+        // Then
+        assertThat(result1).isEqualTo("Strategy A executed");
+        assertThat(result2).isEqualTo("Strategy B executed");
+    }
+    
+    @Test
+    @DisplayName("应该支持策略的运行时选择")
+    void shouldSupportRuntimeStrategySelection() {
+        // Given
+        Map<String, Strategy> strategies = Map.of(
+            "A", new ConcreteStrategyA(),
+            "B", new ConcreteStrategyB()
+        );
+        
+        // When
+        Strategy selectedStrategy = strategies.get("A");
+        String result = selectedStrategy.execute();
+        
+        // Then
+        assertThat(result).isEqualTo("Strategy A executed");
+    }
+}
 ```
 
 #### 测试覆盖率配置
+
+**JaCoCo完整配置**:
 ```xml
-<!-- JaCoCo配置示例 -->
 <plugin>
     <groupId>org.jacoco</groupId>
     <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.7</version>
+    <version>0.8.8</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>check</id>
+            <goals>
+                <goal>check</goal>
+            </goals>
+            <configuration>
+                <rules>
+                    <rule>
+                        <element>BUNDLE</element>
+                        <limits>
+                            <limit>
+                                <counter>INSTRUCTION</counter>
+                                <value>COVEREDRATIO</value>
+                                <minimum>0.80</minimum>
+                            </limit>
+                        </limits>
+                    </rule>
+                    <rule>
+                        <element>CLASS</element>
+                        <limits>
+                            <limit>
+                                <counter>LINE</counter>
+                                <value>COVEREDRATIO</value>
+                                <minimum>0.75</minimum>
+                            </limit>
+                        </limits>
+                    </rule>
+                </rules>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```
+
+**Surefire测试配置**:
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M9</version>
     <configuration>
-        <rules>
-            <rule>
-                <element>BUNDLE</element>
-                <limits>
-                    <limit>
-                        <counter>INSTRUCTION</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>0.80</minimum>
-                    </limit>
-                </limits>
-            </rule>
-        </rules>
+        <includes>
+            <include>**/*Test.java</include>
+            <include>**/*Tests.java</include>
+        </includes>
+        <excludes>
+            <exclude>**/*IT.java</exclude>
+        </excludes>
+        <systemPropertyVariables>
+            <java.util.logging.config.file>src/test/resources/logging.properties</java.util.logging.config.file>
+        </systemPropertyVariables>
     </configuration>
 </plugin>
 ```
+
+#### 测试质量检查清单
+
+**每个测试类必须包含**:
+- [ ] 至少一个正常流程测试
+- [ ] 至少一个边界条件测试
+- [ ] 至少一个异常情况测试
+- [ ] 清晰的测试方法命名 (should...When...)
+- [ ] 适当的DisplayName注解
+- [ ] 完整的Given-When-Then结构
+
+**测试覆盖率目标**:
+- [ ] 整体指令覆盖率 ≥ 80%
+- [ ] 每个类的行覆盖率 ≥ 75%
+- [ ] 每个设计模式的分支覆盖率 ≥ 70%
+- [ ] 关键方法的覆盖率 ≥ 90%
 
 ### CI/CD配置详细任务
 
