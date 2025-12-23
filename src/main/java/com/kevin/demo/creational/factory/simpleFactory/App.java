@@ -1,4 +1,4 @@
-package com.kevin.demo.creational.factory.简单factory;
+package com.kevin.demo.creational.factory.simpleFactory;
 
 /**
  * App类
