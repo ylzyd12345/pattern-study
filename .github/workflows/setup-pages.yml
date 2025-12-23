@@ -1,0 +1,30 @@
+name: Setup GitHub Pages
+
+on:
+  workflow_dispatch: # Allow manual triggering
+  push:
+    branches: [ main ]
+    paths: [ '.github/workflows/setup-pages.yml' ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      with:
+        # Automatically create a GitHub Pages site
+        enablement: true
+        
+    - name: Create initial deployment
+      uses: actions/deploy-pages@v4
+      if: ${{ success() }}
+      with:
+        # Create a simple placeholder page
+        error_pages: false
+        artifact_name: github-pages
