@@ -182,7 +182,6 @@
                 <version>${maven.checkstyle.plugin.version}</version>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failOnViolation>true</failOnViolation>
                     <violationSeverity>warning</violationSeverity>
@@ -207,7 +206,8 @@
                         <ruleset>pmd.xml</ruleset>
                     </rulesets>
                     <failOnViolation>true</failOnViolation>
-                    <consoleOutput>true</consoleOutput>
+                    <printFailingErrors>true</printFailingErrors>
+                    <linkXRef>false</linkXRef>
                 </configuration>
                 <executions>
                     <execution>
