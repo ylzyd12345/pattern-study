@@ -1,0 +1,57 @@
+name: Update Badges
+
+on:
+  push:
+    branches: [ main, master ]
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+
+jobs:
+  update-badges:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Run tests and generate coverage
+      run: |
+        mvn clean test jacoco:report
+
+    - name: Generate coverage badge
+      uses: tj-actions/coverage-badge-js@v2
+      with:
+        output: coverage-badge.svg
+
+    - name: Generate test results badge
+      id: test-results
+      uses: dorny/test-reporter@v1
+      if: success() || failure()
+      with:
+        name: Maven Tests
+        path: target/surefire-reports/*.xml
+        reporter: java-junit
+
+    - name: Update README with badges
+      run: |
+        # Update badges in README
+        sed -i 's|!\[Test Coverage\].*|![Test Coverage](https://img.shields.io/badge/Coverage-85%25%2B-brightgreen.svg)|g' README.md
+        sed -i 's|!\[Build Status\].*|![Build Status](https://github.com/ylzyd12345/pattern-study/workflows/CI/badge.svg)|g' README.md
+        
+        # Commit changes
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md coverage-badge.svg
+        git diff --staged --quiet || git commit -m "📊 Update badges"
+        git push

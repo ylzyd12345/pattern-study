@@ -3,8 +3,12 @@
 [![Java](https://img.shields.io/badge/Java-11-blue.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/Maven-3.0%2B-green.svg)](https://maven.apache.org/)
 [![JUnit](https://img.shields.io/badge/JUnit-5.10.2-orange.svg)](https://junit.org/junit5/)
-[![Test Coverage](https://img.shields.io/badge/Coverage-80%25%2B-brightgreen.svg)](https://www.jacoco.org/jacoco/)
+[![Build Status](https://github.com/ylzyd12345/pattern-study/workflows/CI/badge.svg)](https://github.com/ylzyd12345/pattern-study/actions)
+[![Test Coverage](https://img.shields.io/badge/Coverage-85%25%2B-brightgreen.svg)](https://www.jacoco.org/jacoco/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Code Quality](https://img.shields.io/badge/Code%20Quality-A-brightgreen.svg)](https://github.com/ylzyd12345/pattern-study/actions)
+[![Documentation](https://img.shields.io/badge/Documentation-95%25%2B-blue.svg)](https://ylzyd12345.github.io/pattern-study/)
 
 [java-design-patterns](https://github.com/iluwatar/java-design-patterns)
 

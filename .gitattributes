@@ -1,0 +1,52 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.java text diff=java
+*.groovy text diff=groovy
+*.kt text diff=kotlin
+*.xml text diff=xml
+*.properties text diff=properties
+*.yml text diff=yaml
+*.yaml text diff=yaml
+*.md text diff=markdown
+*.txt text
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.pdf binary
+*.jar binary
+*.war binary
+*.ear binary
+*.zip binary
+*.tar.gz binary
+*.rar binary
+
+# Ignore generated files
+target/ linguist-generated
+*.class linguist-generated
+*.jar linguist-generated
+*.war linguist-generated
+*.ear linguist-generated
+
+# Documentation files
+docs/** linguist-documentation
+*.md linguist-documentation
+CHANGELOG.md linguist-documentation
+README.md linguist-documentation
+LICENSE linguist-documentation
+
+# Configuration files
+*.xml linguist-vendored
+*.yml linguist-vendored
+*.yaml linguist-vendored
+*.properties linguist-vendored
+.gitignore linguist-vendored
+.gitattributes linguist-vendored
+.editorconfig linguist-vendored

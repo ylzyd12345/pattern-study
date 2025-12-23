@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <!-- Exclude test classes -->
+  <Match>
+    <Class name="~.*Test.*" />
+  </Match>
+  
+  <!-- Exclude generated classes -->
+  <Match>
+    <Class name="~.*\..*_.+" />
+  </Match>
+  
+  <!-- Exclude App classes (demo classes) -->
+  <Match>
+    <Class name="~.*\.App" />
+  </Match>
+  
+  <!-- Exclude specific bug patterns for demo code -->
+  <Match>
+    <Bug pattern="DM_DEFAULT_ENCODING" />
+  </Match>
+  
+  <Match>
+    <Bug pattern="SE_BAD_FIELD" />
+  </Match>
+  
+  <!-- Exclude serialization warnings for demo classes -->
+  <Match>
+    <Bug pattern="SE_TRANSIENT_FIELD_NOT_RESTORED" />
+  </Match>
+  
+  <!-- Exclude unused variables in demo code -->
+  <Match>
+    <Bug pattern="UWF_UNWRITTEN_FIELD" />
+  </Match>
+</FindBugsFilter>
